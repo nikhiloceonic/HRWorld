@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title></title>
+</head>
+<body>
+<select id="name"></select>
+<div id="info"></div>
+
+<script>
+async function user(){
+  let api="https://jsonplaceholder.typicode.com/users";
+  let response= await fetch(api)
+  let data= await response.json();
+  console.log(data)
+  for(let i=0;i<data.length;i++){
+    document.getElementById("name").innerHTML+=`<option>${data[i].name}</option>`
+  }
+
+let name=document.getElementById("name");
+name.addEventListener("change", () => {
+let selecteduser=name.selectedIndex;
+let information=data[selecteduser].address;
+
+document.getElementById("info").innerHTML=`<p>${information.street}</p>
+<p>${information.suite}</p>
+<p>${information.city}</p>
+<p>${information.zipcode}</p>`
+})
+
+
+}
+
+user();
+</script>
+
+</body>
+</html>

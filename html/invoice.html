@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>API Fetch Example</title>
+</head>
+<body>
+<div id="div"></div>
+<button id="btn1">Data 1</button>
+<button id="btn2">Data 2</button>
+<button id="btn3">Data 3</button>
+
+<script>
+async function api(){
+    let api='https://jsonplaceholder.typicode.com/posts';
+    let response = await fetch(api);
+    let data = await response.json();
+
+    // Button 1 click logic to toggle content
+    document.getElementById("btn1").addEventListener("click", () => {
+        let div = document.getElementById("div");
+        if (div.innerHTML === "") {
+            div.innerHTML = `${data[0].body}`; // Display the second post
+            
+        } else {
+            div.innerHTML = "";
+            
+        }
+    });
+
+       document.getElementById("btn2").addEventListener("click", () => {
+        let div = document.getElementById("div");
+        if (div.innerHTML === "") {
+             div.innerHTML = `${data[1].body}`
+            
+        } else {
+            div.innerHTML = "";
+           
+        }
+    });
+    
+       document.getElementById("btn3").addEventListener("click", () => {
+        let div = document.getElementById("div");
+        if (div.innerHTML === "") {
+            div.innerHTML = `${data[2].body}`; // Display the second post
+            
+        } else {
+            div.innerHTML = "";
+            
+        }
+    });
+}
+
+api();
+</script>
+
+</body>
+</html>

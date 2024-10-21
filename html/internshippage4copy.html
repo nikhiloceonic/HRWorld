@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>User Fetch Example</title>
+</head>
+<body>
+  <div id="div"></div>
+  <button id="btn">Click Me, Baby!</button>
+
+  <script>
+    async function apis() {
+      const api = 'https://jsonplaceholder.typicode.com/users';
+      try {
+        const res = await fetch(api);
+        const data = await res.json();
+
+        // Create arrays for user names and emails
+        const namesArray = [];
+        const emailsArray = [];
+
+        // Loop through each user object to populate arrays
+        data.forEach(user => {
+          namesArray.push(user.name);
+          emailsArray.push(user.email);
+        });
+
+        console.log('Names Array:', namesArray);
+        console.log('Emails Array:', emailsArray);
+
+        // Display user data on the page
+        
+      } catch (error) {
+        console.error('Error fetching data:', error);
+      }
+    }
+
+    // Call the function when the button is clicked
+    document.getElementById('btn').addEventListener('click', apis);
+  </script>
+</body>
+</html>

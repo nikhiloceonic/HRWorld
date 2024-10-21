@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title></title>
+</head>
+<body>
+
+<form>
+  <div style="height: 100px;width: 100px;background-color: red;" id="div"></div>
+  <input type="text" name=""><br><br>
+  <input type="range" name="" min="100" max="1000" id="range"><br><br>
+  <input type="number" name=""><br><br>
+  <input type="email" name=""><br><br>
+  <input type="datetime-local" name=""><br><br>
+  <input type="file" name=""><br><br>
+  <button type="button">Click me!</button>
+</form>
+
+<script>
+    let div = document.getElementById("div");
+  let range = document.getElementById("range");
+
+  range.addEventListener("input", function() {
+    div.style.width = range.value + "px";
+    div.style.height = range.value + "px";
+  });
+</script>
+
+
+</body>
+</html>
+
+<!--end-->
+
+<!DOCTYPE html>
+
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+
+<p id="f"></p>
+<script type="text/javascript">
+let clas=11;
+if (clas<10) { console.log("you can't celebrate farewell")}else{console.log("you can celebrate")}
+
+document.getElementById('f').innerHTML= (clas);
+
+
+
+	
+let x=3
+let y=34
+let z=20
+x**=2
+console.log(x)
+
+
+
+alert("Hi!")
+prompt("Hi")
+
+let score=25;
+score >= 20 ? "pass":"fail"
+
+
+
+function addtwonumbers(p1,p2){
+ console.log (p1 + p2);
+ return addtwonumbers
+}
+let result= addtwonumbers(23,13)
+
+
+
+let sum=0
+for (let i = 1; i<=5; i++) {
+	sum=sum+i;
+}
+console.log(sum)
+
+
+
+
+let i=1
+ do{
+ 	console.log(i);
+    i++; 
+ }while(i<=7);
+
+
+ let cars= ["tyres","handle","fully furnished"]
+for(car of cars){
+		console.log(car.toUpperCase())
+	}
+
+
+
+let num=45    
+start();
+
+
+
+
+function start(){
+	let username=prompt("guess the number");
+
+	if(parseFloat(username)===gn){
+prompt("you are right");
+	}else{
+
+		prompt("you are not right");
+		start();
+	}
+}
+
+
+</script>
+<script>
+let num=45;
+let username=prompt("start guessing");
+while (username!=num){
+let username=prompt("wrong ans.");
+}
+
+console.log("right ans.");
+
+
+
+
+
+
+let sum=0;
+let marks=[85,97,44,37,76,60]
+for (let i = 0; i <marks.length; i++) {
+  sum=sum+marks[i]// classical/traditional way to calculate loop
+
+}
+console.log("Average marks is "+sum/marks.length)
+
+
+
+function hi(str){
+let count=0
+for(let char of str){
+if (char==="a"||char==="e"||char==="i"||char==="o"||char==="u") {count++}
+
+}
+console.log(count)
+}
+
+let ne1= ["Saab", "Volvo", "BMW"];
+let ne2= ["Saab", "Volvo", "BMW"];
+let ne3 = ["Saab", "Volvo", "BMW"];
+let ne4= ["Saab", "Volvo", "BMW"];
+let ne5=["Saab", "Volvo", "BMW"];
+ 
+
+let ne6= ne1.concat(ne2,ne3,ne4,ne5)
+console.log(ne6)
+
+
+
+
+let n=30;
+let user
+while(user!=n){
+	user=prompt("guess")
+	console.log("try again ")
+}
+console.log("right")
+
+
+
+let marks=[85,97,44,37,76,60]
+
+marks.forEach((element) =>{
+  console.log(element*element)// it multiplies array in square form
+})
+
+
+let name="nikhil"
+let arr=Array.from(name)//it converts array to string
+console.log(arr) 
+
+
+
+
+let marks = [23, 45, 47, 38, 67];
+let passingMark = 40;
+let passedStudents = 0;
+
+for (let i = 0; i < marks.length; i++) {
+    if (marks[i] >= passingMark) {
+        passedStudents++;
+    }
+}
+
+console.log("Number of students passed:", passedStudents);
+
+
+let pm=33
+  let marks=[23,45,47,38,67,22,34,33,21,21]
+  for (let i =0; i <marks.length; i++) {
+   if (marks[i]<pm) {console.log("fail")} else{console.log("pass")}
+  }
+let n=44
+start();
+function  start(){
+let user=prompt("guess")
+if (parseInt(user)===n) {alert("right")} else {alert("wrong")}
+start()
+}
+console.log()
+
+
+ let x=23
+  let y=22
+
+let sum=0;
+let marks=[85,97,44,37,76,60]
+for(mark of marks){
+sum=sum+mark
+}
+console.log(sum*(x+y))// sum of variable and array in a normal way
+
+
+function myfun(){
+  let x=22;
+let y=23
+
+  let sum=0;
+  let marks=[85,97,44,37,76,60]
+for(mark of marks){
+sum=sum+mark
+}
+console.log(sum*(x+y))
+
+
+}
+myfun();//sum of variable and array in a function
+
+
+
+
+<h1 id="yy">tryguhnjimkl</h1>
+
+
+<script>
+	let v=document.getElementById("yy");
+	console.log(v);
+	v.innerHTML="34567898765456789";
+	v.style.color='red';
+</script>
+
+
+
+Number: <input type="text" id="id1">
+<button type="button" onclick="yn()">Submit</button>
+<p id="demo"></p>
+<script>
+let x=document.getElementById("id1").value;
+function  yn() {
+  if (x<10 && x>1) {text="input valid"}
+    else{text="not valid"}
+
+  document.getElementById("demo").innerHTML=text
+}	
+
+
+
+<input type="text" id="inputColor" />
+<button onclick="nam()">click me</button>
+
+<p>dfs</p>
+<p>smnd</p>
+<p>smnd</p>
+<p>smnd</p>
+
+<script>
+	function nam () {
+
+let colorvalue=document.getElementById("inputColor").value;
+let para=document.querySelectorAll("p");
+for(i=0;i<para.length;i++){
+para[i].style.color=colorvalue}
+}
+	//document.getElementById("demo").innerHTML= "hello"+"<br>"+"hello"+"<br>"+"hello"+"<br>"+"hello"+"<br>"+"hello"+"<br>"+"hello";
+
+
+<body>
+	<input type="text" id="id1">
+<button onclick="my()">Click me!</button>
+
+<table>
+
+<tr>
+<th>Hi!</th>
+<th>Hi!</th>
+<th>Hi!</th>
+<th>Hi!</th>
+<th>Hi!</th>
+</tr>
+
+<tr>
+<td>Bye!</td>
+<td>Bye!</td>
+<td>Bye!</td>
+<td>Bye!</td>
+<td>Bye!</td>
+</tr>
+
+
+</table> 
+
+<script>
+	function my(){
+    let x=document.getElementById("id1")
+ let tableElements=document.querySelectorAll("table")
+for(let i=0;i<=tableElements.length;i++){
+ 
+// let trElement=tableElements[i].querySelectorAll("tr");
+alert(tableElements[i].rows.length);
+ }
+ 
+
+}
+
+
+
+<body>
+	<input type="number" id="id1">
+  <input type="number" id="id2">
+
+<button onclick="sum()">Click me!</button>
+
+
+
+
+
+<script>
+	function sum() {
+ let x= parseFloat(document.getElementById("id1").value)
+  let y= parseFloat(document.getElementById("id2").value)
+let z=x/y
+document.write(z)/* calculator
+
+  }*/
+
+<!DOCTYPE html>
+<html>
+<body>
+<h1>JavaScript async / await</h1>
+<p id="demo"></p>
+
+<script>
+async function getFile() {
+
+let response=await fetch("https://jsonplaceholder.typicode.com/photos");
+let data=await response.json();
+alert(data);
+
+ 
+  document.getElementById("demo").innerHTML = data[0]['thumbnailUrl'];
+}
+
+getFile();
+</script>
+
+</body>
+</html>
+
+
+
+</script>
+</body>
+
+</script>
+</body>
+
+
+</script>
+</body>
+</html>	
+
+<!--for increasea and decrease number in input, would help in e commerce websites start-->
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Number Increment/Decrement</title>
+</head>
+<body>
+  <button type="button" id="btn1">-</button>
+  <input type="text" id="inpn" value="0">
+  <button type="button" id="btn2">+</button>
+
+  <script>
+    let btn1 = document.getElementById("btn1");
+    let btn2 = document.getElementById("btn2");
+
+    btn1.addEventListener("click", () => {
+      let inpn = parseInt(document.getElementById("inpn").value);
+      if (inpn > 0) {
+        document.getElementById("inpn").value = inpn - 1;
+      } else {
+        alert("Number should not be less than zero!");
+      }
+    });
+
+    btn2.addEventListener("click", () => {
+      let inpn = parseInt(document.getElementById("inpn").value);
+      document.getElementById("inpn").value = inpn + 1;
+    });
+  </script>
+</body>
+</html>
+
+<!--for increasea and decrease number in input, would help in e commerce websites end-->

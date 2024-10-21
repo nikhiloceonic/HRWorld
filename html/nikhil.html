@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title></title>
+</head>
+<body>
+<input type="text" name="todo" id="inp"> <button type="button" id="btn">OK</button>
+<div id="div" style="height: auto;width: auto;"></div>
+
+<script>
+ 
+ let btn=document.getElementById("btn")
+ btn.addEventListener("click",()=>{
+   let inp=document.getElementById("inp")
+let div=document.getElementById("div")
+  div.innerHTML=inp.value
+  console.log(inp.value)
+ })
+
+
+</script>
+
+</body>
+</html>

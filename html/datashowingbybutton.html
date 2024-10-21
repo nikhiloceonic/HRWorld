@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Image Loader</title>
+</head>
+<body>
+  <div id="div" style="height:auto;width:auto"></div>
+  <button id="btn" type="button" style="margin-left: 700px;">Next</button>
+
+  <script>
+    async function apis() {
+      const api = "https://jsonplaceholder.typicode.com/photos";
+      const response = await fetch(api);
+      const data = await response.json();
+      let startIndex = 0;
+      const batchSize = 50;
+
+      const btn = document.getElementById("btn");
+      const div = document.getElementById("div");
+
+      function loadImages() {
+        for (let i = startIndex; i < startIndex + batchSize && i < data.length; i++) {
+          div.innerHTML += `<img src="${data[i].url}" alt="nj" width="100" height="100">`;
+        }
+        startIndex += batchSize;
+      }
+
+      // Initial load
+      loadImages();
+
+      btn.addEventListener("click", () => {
+        if (startIndex < data.length) {
+          loadImages();
+        } else {
+          btn.disabled = true; // Disable button if all images are loaded
+          btn.innerText = 'No more images';
+        }
+      });
+    }
+
+    apis();
+  </script>
+</body>
+</html>

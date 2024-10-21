@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Count Table Rows and Columns</title>
+</head>
+<body>
+
+<table id="myTable">
+  <tr>
+    <td>Row 1, Cell 1</td>
+    <td>Row 1, Cell 2</td>
+    <td>Row 1, Cell 3</td>
+  </tr>
+  <tr>
+    <td>Row 2, Cell 1</td>
+    <td>Row 2, Cell 2</td>
+    <td>Row 2, Cell 3</td>
+  </tr>
+  <tr>
+    <td>Row 3, Cell 1</td>
+    <td>Row 3, Cell 2</td>
+    <td>Row 3, Cell 3</td>
+  </tr>
+</table>
+
+<script>
+  // Get a reference to the table element
+  var table = document.getElementById("myTable");
+
+  // Count the number of rows
+  var rowCount = table.rows.length;
+
+  // Count the number of columns in the first row (assuming all rows have the same number of columns)
+  var columnCount = table.rows[0].cells.length;
+
+  // Display the counts
+  console.log("Number of rows: " + rowCount);
+  console.log("Number of columns: " + columnCount);
+</script>
+
+</body>
+</html>
+

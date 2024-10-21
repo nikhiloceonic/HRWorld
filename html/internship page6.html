@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Frontend Developer Portfolio</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/3.2.7/tailwind.min.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.0/gsap.min.js"></script>
+    <style>
+        /* Global Styles */
+        body {
+            scroll-behavior: smooth;
+        }
+        .section {
+            padding: 60px 0;
+        }
+        .hero {
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        /* Navbar */
+        .navbar {
+            transition: background-color 0.3s ease;
+        }
+        .navbar.scrolled {
+            background-color: #343a40 !important;
+        }
+        /* Lazy loading styling for images */
+        .lazy {
+            filter: blur(5px);
+            transition: filter 0.3s ease-out;
+        }
+        .lazy.loaded {
+            filter: none;
+        }
+        /* Bouncy Animation */
+        .animate-bounce {
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+            transition: transform 0.2s ease-in-out;
+        }
+        .img-fluid:hover {
+            transform: scale(1.1);
+        }
+        .rounded-circle {
+            border-radius: 50%;
+        }
+        /* Responsive Tailwind Overrides */
+        @media (max-width: 768px) {
+            .animate-bounce {
+                width: 120px;
+                height: 120px;
+            }
+        }
+    </style>
+</head>
+<body data-bs-spy="scroll" data-bs-target="#navbar" data-bs-offset="70">
+
+    <!-- Navbar -->
+    <nav id="navbar" class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">My Portfolio</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="hero bg-primary text-white text-center">
+        <div class="container">
+            <h1 class="display-4">Hello, I'm a Frontend Developer</h1>
+            <p class="lead">Creating modern, responsive web applications</p>
+            <a href="#projects" class="btn btn-light">View My Work</a>
+        </div>
+    </header>
+
+    <!-- About Section -->
+    <section id="about" class="section py-5">
+        <div class="container text-center">
+            <h2>About Me</h2>
+            <p class="lead">I'm a frontend developer with a passion for creating user-friendly, interactive websites and applications.</p>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="section py-5 bg-light">
+        <div class="container">
+            <h2 class="text-center">Projects</h2>
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <div class="card">
+                        <img src="img/project1.jpg" class="card-img-top lazy" alt="Project 1">
+                        <div class="card-body">
+                            <h5 class="card-title">Project 1</h5>
+                            <p class="card-text">A responsive web application built with React and Bootstrap.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card">
+                        <img src="img/project2.jpg" class="card-img-top lazy" alt="Project 2">
+                        <div class="card-body">
+                            <h5 class="card-title">Project 2</h5>
+                            <p class="card-text">A dynamic web page using JavaScript and CSS animations.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card">
+                        <img src="img/project3.jpg" class="card-img-top lazy" alt="Project 3">
+                        <div class="card-body">
+                            <h5 class="card-title">Project 3</h5>
+                            <p class="card-text">A personal blog site created with HTML, CSS, and Bootstrap.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section with Bouncing Effect -->
+    <section id="skills" class="section py-5">
+        <div class="container text-center">
+            <h2>Skills</h2>
+            <div class="row">
+                <div class="col-md-3 col-sm-6 mb-4">
+                    <img src="img/html-css.png" alt="HTML CSS" class="img-fluid rounded-circle animate-bounce">
+                    <p>HTML & CSS: Creating structured, well-styled web pages with clean, maintainable code.</p>
+                </div>
+                <div class="col-md-3 col-sm-6 mb-4">
+                    <img src="img/bootstrap-logo.png" alt="Bootstrap" class="img-fluid rounded-circle animate-bounce">
+                    <p>Bootstrap: Responsive design with reusable components and flexible grids.</p>
+                </div>
+                <div class="col-md-3 col-sm-6 mb-4">
+                    <img src="img/js-logo.png" alt="JavaScript" class="img-fluid rounded-circle animate-bounce">
+                    <p>JavaScript: Adding interactivity and dynamic features to web pages.</p>
+                </div>
+                <div class="col-md-3 col-sm-6 mb-4">
+                    <img src="img/react-logo.png" alt="React" class="img-fluid rounded-circle animate-bounce">
+                    <p>React: Building dynamic, single-page applications with reusable components.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Personal Picture Section with Bouncing Effect -->
+    <section id="myImage" class="section py-5 bg-light">
+        <div class="container text-center">
+            <h2>About Me</h2>
+            <div class="row justify-content-center">
+                <!-- GSAP Animated Personal Image -->
+                <div class="col-md-3 col-sm-6 mb-4">
+                    <img src="img/me.jpg" alt="My Picture" class="img-fluid rounded-circle animate-bounce">
+                    <p class="mt-3">Me</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section py-5 bg-light">
+        <div class="container text-center">
+            <h2>Contact</h2>
+            <p>If you'd like to work with me, feel free to reach out!</p>
+            <a href="mailto:youremail@example.com" class="btn btn-primary">Contact Me</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-3 bg-dark text-white text-center">
+        <div class="container">
+            <p>&copy; 2024 Your Name. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <!-- GSAP Script -->
+    <script>
+        // Lazy Loading Images
+        document.addEventListener("DOMContentLoaded", function() {
+            const lazyImages = document.querySelectorAll('img.lazy');
+            const imageObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        const img = entry.target;
+                        img.src = img.getAttribute('data-src');
+                        img.classList.remove('lazy');
+                        img.classList.add('loaded');
+                        observer.unobserve(img);
+                    }
+                });
+            });
+            lazyImages.forEach((image) => {
+                imageObserver.observe(image);
+            });
+        });
+
+        // GSAP Animation for Bouncing Effect
+        document.addEventListener("DOMContentLoaded", function() {
+            const bouncingImages = document.querySelectorAll('.animate-bounce');
+            bouncingImages.forEach((image) => {
+                gsap.to(image, {
+                    duration: 2,
+                    y: "-20px",
+                    repeat: -1,
+                    yoyo: true,
+                    ease: "power1.inOut"
+                });
+            });
+        });
+
+        // Change navbar background on scroll
+        window.addEventListener('scroll', function () {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        
+    </script>
+
+</body>
+</html>

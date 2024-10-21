@@ -1,0 +1,932 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scrollable Image Row</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+          body {
+            margin: 0;
+            padding: 0;
+            background: #f0f0f0;
+        }
+
+        .header-container {
+            background: linear-gradient(135deg, #009688, #004d40, #004d40); /* Teal gradient background */
+            padding: 30px 20px;
+            color: white;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header-container::before {
+            content: url('https://images.app.goo.gl/s3Kwu1ajFyYiv9C38'); /* Full-width flute image */
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+            z-index: -1;
+            opacity: 0.8;
+        }
+
+        .header-container input {
+            width: 100%;
+            max-width: 300px;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            margin-top: 10px;
+            box-sizing: border-box;
+        }
+
+        .category-header {
+            margin: 20px 0;
+            font-size: 24px;
+            font-weight: bold;
+            color: #ffffff;
+        }
+
+        .category-header .title {
+            display: block;
+            font-size: 24px; /* Base font size */
+            font-weight: normal;
+            color: #ffffff;
+        }
+
+        .category-header .highlight {
+            font-size: 48px; /* Larger size for 'JANMASHTAMI' */
+            font-weight: 900; /* More bold */
+            color: #ffeb3b; /* Bright yellow for emphasis */
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 10px;
+            display: inline-block;
+            overflow: hidden;
+            white-space: nowrap; /* Prevents text from wrapping */
+        }
+
+        @media (max-width: 768px) {
+            .category-header .highlight {
+                font-size: 32px; /* Smaller size for mobile view */
+                margin-top: 10px;
+                white-space: normal; /* Allows text to wrap on smaller screens */
+            }
+        }
+
+        .scrollable-row {
+            display: flex;
+            overflow-x: auto;
+            scroll-behavior: smooth;
+            -webkit-overflow-scrolling: touch;
+            padding: 10px 0;
+        }
+
+        .scrollable-row::-webkit-scrollbar {
+            display: none;
+        }
+
+        .scrollable-row .scroll-item {
+            flex: 0 0 auto;
+            width: 150px;
+            text-align: center;
+            margin-right: 15px; /* Space between items */
+        }
+
+        .scrollable-row .scroll-item:last-child {
+            margin-right: 0; /* Remove margin from the last item */
+        }
+
+        .scrollable-row img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            border: 2px solid #ddd;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .scroll-item p {
+            text-align: center;
+            margin-top: 25px;
+            font-size: 14px;
+            font-weight: bold;
+        }
+
+        .scrollable-row img:hover {
+            transform: scale(1.1); /* Zoom effect on hover */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header-container">
+        <input type="text" placeholder="Search..." aria-label="Search">
+        <div class="category-header">
+            <span class="title">A Celebration of Love and Devotion</span><br>
+            <span class="highlight">JANMASHTAMI</span>
+        </div>
+        <img src="https://images.app.goo.gl/s3Kwu1ajFyYiv9C38" alt="Flute Image" class="flute-image">
+
+        <div class="container-fluid">
+            <div class="scrollable-row">
+                <!-- Replace 'https://cdn.lazyshop.com/files/84d84f33-5cbd-4cd2-8c63-4a3789e49cfc/other/d06f30cb308413cd2b7c13f902c89a7a.jpg' with actual paths -->
+                <div class="scroll-item">
+                    <img src="https://cdn.lazyshop.com/files/84d84f33-5cbd-4cd2-8c63-4a3789e49cfc/other/d06f30cb308413cd2b7c13f902c89a7a.jpg" alt="Krishna Image 1">
+                    <p>JANMASHTAMI</p>
+                </div>
+                <div class="scroll-item">
+                    <img src="https://cdn.lazyshop.com/files/84d84f33-5cbd-4cd2-8c63-4a3789e49cfc/other/d06f30cb308413cd2b7c13f902c89a7a.jpg" alt="Krishna Image 2">
+                    <p>JANMASHTAMI</p>
+                </div>
+                <div class="scroll-item">
+                    <img src="https://cdn.lazyshop.com/files/84d84f33-5cbd-4cd2-8c63-4a3789e49cfc/other/d06f30cb308413cd2b7c13f902c89a7a.jpg" alt="Krishna Image 3">
+                    <p>JANMASHTAMI</p>
+                </div>
+                <div class="scroll-item">
+                    <img src="https://cdn.lazyshop.com/files/84d84f33-5cbd-4cd2-8c63-4a3789e49cfc/other/d06f30cb308413cd2b7c13f902c89a7a.jpg" alt="Krishna Image 4">
+                    <p>JANMASHTAMI</p>
+                </div>
+                <div class="scroll-item">
+                    <img src="https://cdn.lazyshop.com/files/84d84f33-5cbd-4cd2-8c63-4a3789e49cfc/other/d06f30cb308413cd2b7c13f902c89a7a.jpg" alt="Krishna Image 5">
+                    <p>JANMASHTAMI</p>
+                </div>
+                <div class="scroll-item">
+                    <img src="https://cdn.lazyshop.com/files/84d84f33-5cbd-4cd2-8c63-4a3789e49cfc/other/d06f30cb308413cd2b7c13f902c89a7a.jpg" alt="Krishna Image 6">
+                    <p>JANMASHTAMI</p>
+                </div>
+                <div class="scroll-item">
+                    <img src="https://cdn.lazyshop.com/files/84d84f33-5cbd-4cd2-8c63-4a3789e49cfc/other/d06f30cb308413cd2b7c13f902c89a7a.jpg" alt="Krishna Image 7">
+                    <p>JANMASHTAMI</p>
+                </div>
+                <div class="scroll-item">
+                    <img src="https://cdn.lazyshop.com/files/84d84f33-5cbd-4cd2-8c63-4a3789e49cfc/other/d06f30cb308413cd2b7c13f902c89a7a.jpg" alt="Krishna Image 8">
+                    <p>JANMASHTAMI</p>
+                </div>
+                <div class="scroll-item">
+                    <img src="https://cdn.lazyshop.com/files/84d84f33-5cbd-4cd2-8c63-4a3789e49cfc/other/d06f30cb308413cd2b7c13f902c89a7a.jpg" alt="Krishna Image 9">
+                    <p>JANMASHTAMI</p>
+                </div>
+                <div class="scroll-item">
+                    <img src="https://cdn.lazyshop.com/files/84d84f33-5cbd-4cd2-8c63-4a3789e49cfc/other/d06f30cb308413cd2b7c13f902c89a7a.jpg" alt="Krishna Image 10">
+                    <p>JANMASHTAMI</p>
+                </div>
+                <div class="scroll-item">
+                    <img src="https://cdn.lazyshop.com/files/84d84f33-5cbd-4cd2-8c63-4a3789e49cfc/other/d06f30cb308413cd2b7c13f902c89a7a.jpg" alt="Krishna Image 11">
+                    <p>JANMASHTAMI</p>
+                </div>
+                <div class="scroll-item">
+                    <img src="https://cdn.lazyshop.com/files/84d84f33-5cbd-4cd2-8c63-4a3789e49cfc/other/d06f30cb308413cd2b7c13f902c89a7a.jpg" alt="Krishna Image 12">
+                    <p>JANMASHTAMI</p>
+                </div>
+                <div class="scroll-item">
+                    <img src="https://cdn.lazyshop.com/files/84d84f33-5cbd-4cd2-8c63-4a3789e49cfc/other/d06f30cb308413cd2b7c13f902c89a7a.jpg" alt="Krishna Image 13">
+                    <p>JANMASHTAMI</p>
+                </div>
+                <div class="scroll-item">
+                    <img src="https://cdn.lazyshop.com/files/84d84f33-5cbd-4cd2-8c63-4a3789e49cfc/other/d06f30cb308413cd2b7c13f902c89a7a.jpg" alt="Krishna Image 14">
+                    <p>JANMASHTAMI</p>
+                </div>
+                <div class="scroll-item">
+                    <img src="https://cdn.lazyshop.com/files/84d84f33-5cbd-4cd2-8c63-4a3789e49cfc/other/d06f30cb308413cd2b7c13f902c89a7a.jpg" alt="Krishna Image 15">
+                    <p>JANMASHTAMI</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="container-fluid">
+            <div class="scrollable-row">
+                <!-- Replace 'https://cdn.lazyshop.com/files/84d84f33-5cbd-4cd2-8c63-4a3789e49cfc/other/d06f30cb308413cd2b7c13f902c89a7a.jpg' with actual paths -->
+                <div class="scroll-item">
+                    <img src="https://cdn.lazyshop.com/files/84d84f33-5cbd-4cd2-8c63-4a3789e49cfc/other/d06f30cb308413cd2b7c13f902c89a7a.jpg" alt="Krishna Image 1">
+                    <p>JANMASHTAMI</p>
+                </div>
+                <div class="scroll-item">
+                    <img src="https://cdn.lazyshop.com/files/84d84f33-5cbd-4cd2-8c63-4a3789e49cfc/other/d06f30cb308413cd2b7c13f902c89a7a.jpg" alt="Krishna Image 2">
+                    <p>JANMASHTAMI</p>
+                </div>
+                <div class="scroll-item">
+                    <img src="https://cdn.lazyshop.com/files/84d84f33-5cbd-4cd2-8c63-4a3789e49cfc/other/d06f30cb308413cd2b7c13f902c89a7a.jpg" alt="Krishna Image 3">
+                    <p>JANMASHTAMI</p>
+                </div>
+                <div class="scroll-item">
+                    <img src="https://cdn.lazyshop.com/files/84d84f33-5cbd-4cd2-8c63-4a3789e49cfc/other/d06f30cb308413cd2b7c13f902c89a7a.jpg" alt="Krishna Image 4">
+                    <p>JANMASHTAMI</p>
+                </div>
+                <div class="scroll-item">
+                    <img src="https://cdn.lazyshop.com/files/84d84f33-5cbd-4cd2-8c63-4a3789e49cfc/other/d06f30cb308413cd2b7c13f902c89a7a.jpg" alt="Krishna Image 5">
+                    <p>JANMASHTAMI</p>
+                </div>
+                <div class="scroll-item">
+                    <img src="https://cdn.lazyshop.com/files/84d84f33-5cbd-4cd2-8c63-4a3789e49cfc/other/d06f30cb308413cd2b7c13f902c89a7a.jpg" alt="Krishna Image 6">
+                    <p>JANMASHTAMI</p>
+                </div>
+                <div class="scroll-item">
+                    <img src="https://cdn.lazyshop.com/files/84d84f33-5cbd-4cd2-8c63-4a3789e49cfc/other/d06f30cb308413cd2b7c13f902c89a7a.jpg" alt="Krishna Image 7">
+                    <p>JANMASHTAMI</p>
+                </div>
+                <div class="scroll-item">
+                    <img src="https://cdn.lazyshop.com/files/84d84f33-5cbd-4cd2-8c63-4a3789e49cfc/other/d06f30cb308413cd2b7c13f902c89a7a.jpg" alt="Krishna Image 8">
+                    <p>JANMASHTAMI</p>
+                </div>
+                <div class="scroll-item">
+                    <img src="https://cdn.lazyshop.com/files/84d84f33-5cbd-4cd2-8c63-4a3789e49cfc/other/d06f30cb308413cd2b7c13f902c89a7a.jpg" alt="Krishna Image 9">
+                    <p>JANMASHTAMI</p>
+                </div>
+                <div class="scroll-item">
+                    <img src="https://cdn.lazyshop.com/files/84d84f33-5cbd-4cd2-8c63-4a3789e49cfc/other/d06f30cb308413cd2b7c13f902c89a7a.jpg" alt="Krishna Image 10">
+                    <p>JANMASHTAMI</p>
+                </div>
+                <div class="scroll-item">
+                    <img src="https://cdn.lazyshop.com/files/84d84f33-5cbd-4cd2-8c63-4a3789e49cfc/other/d06f30cb308413cd2b7c13f902c89a7a.jpg" alt="Krishna Image 11">
+                    <p>JANMASHTAMI</p>
+                </div>
+                <div class="scroll-item">
+                    <img src="https://cdn.lazyshop.com/files/84d84f33-5cbd-4cd2-8c63-4a3789e49cfc/other/d06f30cb308413cd2b7c13f902c89a7a.jpg" alt="Krishna Image 12">
+                    <p>JANMASHTAMI</p>
+                </div>
+                <div class="scroll-item">
+                    <img src="https://cdn.lazyshop.com/files/84d84f33-5cbd-4cd2-8c63-4a3789e49cfc/other/d06f30cb308413cd2b7c13f902c89a7a.jpg" alt="Krishna Image 13">
+                    <p>JANMASHTAMI</p>
+                </div>
+                <div class="scroll-item">
+                    <img src="https://cdn.lazyshop.com/files/84d84f33-5cbd-4cd2-8c63-4a3789e49cfc/other/d06f30cb308413cd2b7c13f902c89a7a.jpg" alt="Krishna Image 14">
+                    <p>JANMASHTAMI</p>
+                </div>
+                <div class="scroll-item">
+                    <img src="https://cdn.lazyshop.com/files/84d84f33-5cbd-4cd2-8c63-4a3789e49cfc/other/d06f30cb308413cd2b7c13f902c89a7a.jpg" alt="Krishna Image 15">
+                    <p>JANMASHTAMI</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="container-fluid">
+            <div class="scrollable-row">
+                <!-- Replace 'https://cdn.lazyshop.com/files/84d84f33-5cbd-4cd2-8c63-4a3789e49cfc/other/d06f30cb308413cd2b7c13f902c89a7a.jpg' with actual paths -->
+                <div class="scroll-item">
+                    <img src="https://cdn.lazyshop.com/files/84d84f33-5cbd-4cd2-8c63-4a3789e49cfc/other/d06f30cb308413cd2b7c13f902c89a7a.jpg" alt="Krishna Image 1">
+                    <p>JANMASHTAMI</p>
+                </div>
+                <div class="scroll-item">
+                    <img src="https://cdn.lazyshop.com/files/84d84f33-5cbd-4cd2-8c63-4a3789e49cfc/other/d06f30cb308413cd2b7c13f902c89a7a.jpg" alt="Krishna Image 2">
+                    <p>JANMASHTAMI</p>
+                </div>
+                <div class="scroll-item">
+                    <img src="https://cdn.lazyshop.com/files/84d84f33-5cbd-4cd2-8c63-4a3789e49cfc/other/d06f30cb308413cd2b7c13f902c89a7a.jpg" alt="Krishna Image 3">
+                    <p>JANMASHTAMI</p>
+                </div>
+                <div class="scroll-item">
+                    <img src="https://cdn.lazyshop.com/files/84d84f33-5cbd-4cd2-8c63-4a3789e49cfc/other/d06f30cb308413cd2b7c13f902c89a7a.jpg" alt="Krishna Image 4">
+                    <p>JANMASHTAMI</p>
+                </div>
+                <div class="scroll-item">
+                    <img src="https://cdn.lazyshop.com/files/84d84f33-5cbd-4cd2-8c63-4a3789e49cfc/other/d06f30cb308413cd2b7c13f902c89a7a.jpg" alt="Krishna Image 5">
+                    <p>JANMASHTAMI</p>
+                </div>
+                <div class="scroll-item">
+                    <img src="https://cdn.lazyshop.com/files/84d84f33-5cbd-4cd2-8c63-4a3789e49cfc/other/d06f30cb308413cd2b7c13f902c89a7a.jpg" alt="Krishna Image 6">
+                    <p>JANMASHTAMI</p>
+                </div>
+                <div class="scroll-item">
+                    <img src="https://cdn.lazyshop.com/files/84d84f33-5cbd-4cd2-8c63-4a3789e49cfc/other/d06f30cb308413cd2b7c13f902c89a7a.jpg" alt="Krishna Image 7">
+                    <p>JANMASHTAMI</p>
+                </div>
+                <div class="scroll-item">
+                    <img src="https://cdn.lazyshop.com/files/84d84f33-5cbd-4cd2-8c63-4a3789e49cfc/other/d06f30cb308413cd2b7c13f902c89a7a.jpg" alt="Krishna Image 8">
+                    <p>JANMASHTAMI</p>
+                </div>
+                <div class="scroll-item">
+                    <img src="https://cdn.lazyshop.com/files/84d84f33-5cbd-4cd2-8c63-4a3789e49cfc/other/d06f30cb308413cd2b7c13f902c89a7a.jpg" alt="Krishna Image 9">
+                    <p>JANMASHTAMI</p>
+                </div>
+                <div class="scroll-item">
+                    <img src="https://cdn.lazyshop.com/files/84d84f33-5cbd-4cd2-8c63-4a3789e49cfc/other/d06f30cb308413cd2b7c13f902c89a7a.jpg" alt="Krishna Image 10">
+                    <p>JANMASHTAMI</p>
+                </div>
+                <div class="scroll-item">
+                    <img src="https://cdn.lazyshop.com/files/84d84f33-5cbd-4cd2-8c63-4a3789e49cfc/other/d06f30cb308413cd2b7c13f902c89a7a.jpg" alt="Krishna Image 11">
+                    <p>JANMASHTAMI</p>
+                </div>
+                <div class="scroll-item">
+                    <img src="https://cdn.lazyshop.com/files/84d84f33-5cbd-4cd2-8c63-4a3789e49cfc/other/d06f30cb308413cd2b7c13f902c89a7a.jpg" alt="Krishna Image 12">
+                    <p>JANMASHTAMI</p>
+                </div>
+                <div class="scroll-item">
+                    <img src="https://cdn.lazyshop.com/files/84d84f33-5cbd-4cd2-8c63-4a3789e49cfc/other/d06f30cb308413cd2b7c13f902c89a7a.jpg" alt="Krishna Image 13">
+                    <p>JANMASHTAMI</p>
+                </div>
+                <div class="scroll-item">
+                    <img src="https://cdn.lazyshop.com/files/84d84f33-5cbd-4cd2-8c63-4a3789e49cfc/other/d06f30cb308413cd2b7c13f902c89a7a.jpg" alt="Krishna Image 14">
+                    <p>JANMASHTAMI</p>
+                </div>
+                <div class="scroll-item">
+                    <img src="https://cdn.lazyshop.com/files/84d84f33-5cbd-4cd2-8c63-4a3789e49cfc/other/d06f30cb308413cd2b7c13f902c89a7a.jpg" alt="Krishna Image 15">
+                    <p>JANMASHTAMI</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="container-fluid">
+            <div class="scrollable-row">
+                <!-- Replace 'https://cdn.lazyshop.com/files/84d84f33-5cbd-4cd2-8c63-4a3789e49cfc/other/d06f30cb308413cd2b7c13f902c89a7a.jpg' with actual paths -->
+                <div class="scroll-item">
+                    <img src="https://cdn.lazyshop.com/files/84d84f33-5cbd-4cd2-8c63-4a3789e49cfc/other/d06f30cb308413cd2b7c13f902c89a7a.jpg" alt="Krishna Image 1">
+                    <p>JANMASHTAMI</p>
+                </div>
+                <div class="scroll-item">
+                    <img src="https://cdn.lazyshop.com/files/84d84f33-5cbd-4cd2-8c63-4a3789e49cfc/other/d06f30cb308413cd2b7c13f902c89a7a.jpg" alt="Krishna Image 2">
+                    <p>JANMASHTAMI</p>
+                </div>
+                <div class="scroll-item">
+                    <img src="https://cdn.lazyshop.com/files/84d84f33-5cbd-4cd2-8c63-4a3789e49cfc/other/d06f30cb308413cd2b7c13f902c89a7a.jpg" alt="Krishna Image 3">
+                    <p>JANMASHTAMI</p>
+                </div>
+                <div class="scroll-item">
+                    <img src="https://cdn.lazyshop.com/files/84d84f33-5cbd-4cd2-8c63-4a3789e49cfc/other/d06f30cb308413cd2b7c13f902c89a7a.jpg" alt="Krishna Image 4">
+                    <p>JANMASHTAMI</p>
+                </div>
+                <div class="scroll-item">
+                    <img src="https://cdn.lazyshop.com/files/84d84f33-5cbd-4cd2-8c63-4a3789e49cfc/other/d06f30cb308413cd2b7c13f902c89a7a.jpg" alt="Krishna Image 5">
+                    <p>JANMASHTAMI</p>
+                </div>
+                <div class="scroll-item">
+                    <img src="https://cdn.lazyshop.com/files/84d84f33-5cbd-4cd2-8c63-4a3789e49cfc/other/d06f30cb308413cd2b7c13f902c89a7a.jpg" alt="Krishna Image 6">
+                    <p>JANMASHTAMI</p>
+                </div>
+                <div class="scroll-item">
+                    <img src="https://cdn.lazyshop.com/files/84d84f33-5cbd-4cd2-8c63-4a3789e49cfc/other/d06f30cb308413cd2b7c13f902c89a7a.jpg" alt="Krishna Image 7">
+                    <p>JANMASHTAMI</p>
+                </div>
+                <div class="scroll-item">
+                    <img src="https://cdn.lazyshop.com/files/84d84f33-5cbd-4cd2-8c63-4a3789e49cfc/other/d06f30cb308413cd2b7c13f902c89a7a.jpg" alt="Krishna Image 8">
+                    <p>JANMASHTAMI</p>
+                </div>
+                <div class="scroll-item">
+                    <img src="https://cdn.lazyshop.com/files/84d84f33-5cbd-4cd2-8c63-4a3789e49cfc/other/d06f30cb308413cd2b7c13f902c89a7a.jpg" alt="Krishna Image 9">
+                    <p>JANMASHTAMI</p>
+                </div>
+                <div class="scroll-item">
+                    <img src="https://cdn.lazyshop.com/files/84d84f33-5cbd-4cd2-8c63-4a3789e49cfc/other/d06f30cb308413cd2b7c13f902c89a7a.jpg" alt="Krishna Image 10">
+                    <p>JANMASHTAMI</p>
+                </div>
+                <div class="scroll-item">
+                    <img src="https://cdn.lazyshop.com/files/84d84f33-5cbd-4cd2-8c63-4a3789e49cfc/other/d06f30cb308413cd2b7c13f902c89a7a.jpg" alt="Krishna Image 11">
+                    <p>JANMASHTAMI</p>
+                </div>
+                <div class="scroll-item">
+                    <img src="https://cdn.lazyshop.com/files/84d84f33-5cbd-4cd2-8c63-4a3789e49cfc/other/d06f30cb308413cd2b7c13f902c89a7a.jpg" alt="Krishna Image 12">
+                    <p>JANMASHTAMI</p>
+                </div>
+                <div class="scroll-item">
+                    <img src="https://cdn.lazyshop.com/files/84d84f33-5cbd-4cd2-8c63-4a3789e49cfc/other/d06f30cb308413cd2b7c13f902c89a7a.jpg" alt="Krishna Image 13">
+                    <p>JANMASHTAMI</p>
+                </div>
+                <div class="scroll-item">
+                    <img src="https://cdn.lazyshop.com/files/84d84f33-5cbd-4cd2-8c63-4a3789e49cfc/other/d06f30cb308413cd2b7c13f902c89a7a.jpg" alt="Krishna Image 14">
+                    <p>JANMASHTAMI</p>
+                </div>
+                <div class="scroll-item">
+                    <img src="https://cdn.lazyshop.com/files/84d84f33-5cbd-4cd2-8c63-4a3789e49cfc/other/d06f30cb308413cd2b7c13f902c89a7a.jpg" alt="Krishna Image 15">
+                    <p>JANMASHTAMI</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="container-fluid">
+            <div class="scrollable-row">
+                <!-- Replace 'https://cdn.lazyshop.com/files/84d84f33-5cbd-4cd2-8c63-4a3789e49cfc/other/d06f30cb308413cd2b7c13f902c89a7a.jpg' with actual paths -->
+                <div class="scroll-item">
+                    <img src="https://cdn.lazyshop.com/files/84d84f33-5cbd-4cd2-8c63-4a3789e49cfc/other/d06f30cb308413cd2b7c13f902c89a7a.jpg" alt="Krishna Image 1">
+                    <p>JANMASHTAMI</p>
+                </div>
+                <div class="scroll-item">
+                    <img src="https://cdn.lazyshop.com/files/84d84f33-5cbd-4cd2-8c63-4a3789e49cfc/other/d06f30cb308413cd2b7c13f902c89a7a.jpg" alt="Krishna Image 2">
+                    <p>JANMASHTAMI</p>
+                </div>
+                <div class="scroll-item">
+                    <img src="https://cdn.lazyshop.com/files/84d84f33-5cbd-4cd2-8c63-4a3789e49cfc/other/d06f30cb308413cd2b7c13f902c89a7a.jpg" alt="Krishna Image 3">
+                    <p>JANMASHTAMI</p>
+                </div>
+                <div class="scroll-item">
+                    <img src="https://cdn.lazyshop.com/files/84d84f33-5cbd-4cd2-8c63-4a3789e49cfc/other/d06f30cb308413cd2b7c13f902c89a7a.jpg" alt="Krishna Image 4">
+                    <p>JANMASHTAMI</p>
+                </div>
+                <div class="scroll-item">
+                    <img src="https://cdn.lazyshop.com/files/84d84f33-5cbd-4cd2-8c63-4a3789e49cfc/other/d06f30cb308413cd2b7c13f902c89a7a.jpg" alt="Krishna Image 5">
+                    <p>JANMASHTAMI</p>
+                </div>
+                <div class="scroll-item">
+                    <img src="https://cdn.lazyshop.com/files/84d84f33-5cbd-4cd2-8c63-4a3789e49cfc/other/d06f30cb308413cd2b7c13f902c89a7a.jpg" alt="Krishna Image 6">
+                    <p>JANMASHTAMI</p>
+                </div>
+                <div class="scroll-item">
+                    <img src="https://cdn.lazyshop.com/files/84d84f33-5cbd-4cd2-8c63-4a3789e49cfc/other/d06f30cb308413cd2b7c13f902c89a7a.jpg" alt="Krishna Image 7">
+                    <p>JANMASHTAMI</p>
+                </div>
+                <div class="scroll-item">
+                    <img src="https://cdn.lazyshop.com/files/84d84f33-5cbd-4cd2-8c63-4a3789e49cfc/other/d06f30cb308413cd2b7c13f902c89a7a.jpg" alt="Krishna Image 8">
+                    <p>JANMASHTAMI</p>
+                </div>
+                <div class="scroll-item">
+                    <img src="https://cdn.lazyshop.com/files/84d84f33-5cbd-4cd2-8c63-4a3789e49cfc/other/d06f30cb308413cd2b7c13f902c89a7a.jpg" alt="Krishna Image 9">
+                    <p>JANMASHTAMI</p>
+                </div>
+                <div class="scroll-item">
+                    <img src="https://cdn.lazyshop.com/files/84d84f33-5cbd-4cd2-8c63-4a3789e49cfc/other/d06f30cb308413cd2b7c13f902c89a7a.jpg" alt="Krishna Image 10">
+                    <p>JANMASHTAMI</p>
+                </div>
+                <div class="scroll-item">
+                    <img src="https://cdn.lazyshop.com/files/84d84f33-5cbd-4cd2-8c63-4a3789e49cfc/other/d06f30cb308413cd2b7c13f902c89a7a.jpg" alt="Krishna Image 11">
+                    <p>JANMASHTAMI</p>
+                </div>
+                <div class="scroll-item">
+                    <img src="https://cdn.lazyshop.com/files/84d84f33-5cbd-4cd2-8c63-4a3789e49cfc/other/d06f30cb308413cd2b7c13f902c89a7a.jpg" alt="Krishna Image 12">
+                    <p>JANMASHTAMI</p>
+                </div>
+                <div class="scroll-item">
+                    <img src="https://cdn.lazyshop.com/files/84d84f33-5cbd-4cd2-8c63-4a3789e49cfc/other/d06f30cb308413cd2b7c13f902c89a7a.jpg" alt="Krishna Image 13">
+                    <p>JANMASHTAMI</p>
+                </div>
+                <div class="scroll-item">
+                    <img src="https://cdn.lazyshop.com/files/84d84f33-5cbd-4cd2-8c63-4a3789e49cfc/other/d06f30cb308413cd2b7c13f902c89a7a.jpg" alt="Krishna Image 14">
+                    <p>JANMASHTAMI</p>
+                </div>
+                <div class="scroll-item">
+                    <img src="https://cdn.lazyshop.com/files/84d84f33-5cbd-4cd2-8c63-4a3789e49cfc/other/d06f30cb308413cd2b7c13f902c89a7a.jpg" alt="Krishna Image 15">
+                    <p>JANMASHTAMI</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="container-fluid">
+            <div class="scrollable-row">
+                <!-- Replace 'https://cdn.lazyshop.com/files/84d84f33-5cbd-4cd2-8c63-4a3789e49cfc/other/d06f30cb308413cd2b7c13f902c89a7a.jpg' with actual paths -->
+                <div class="scroll-item">
+                    <img src="https://cdn.lazyshop.com/files/84d84f33-5cbd-4cd2-8c63-4a3789e49cfc/other/d06f30cb308413cd2b7c13f902c89a7a.jpg" alt="Krishna Image 1">
+                    <p>JANMASHTAMI</p>
+                </div>
+                <div class="scroll-item">
+                    <img src="https://cdn.lazyshop.com/files/84d84f33-5cbd-4cd2-8c63-4a3789e49cfc/other/d06f30cb308413cd2b7c13f902c89a7a.jpg" alt="Krishna Image 2">
+                    <p>JANMASHTAMI</p>
+                </div>
+                <div class="scroll-item">
+                    <img src="https://cdn.lazyshop.com/files/84d84f33-5cbd-4cd2-8c63-4a3789e49cfc/other/d06f30cb308413cd2b7c13f902c89a7a.jpg" alt="Krishna Image 3">
+                    <p>JANMASHTAMI</p>
+                </div>
+                <div class="scroll-item">
+                    <img src="https://cdn.lazyshop.com/files/84d84f33-5cbd-4cd2-8c63-4a3789e49cfc/other/d06f30cb308413cd2b7c13f902c89a7a.jpg" alt="Krishna Image 4">
+                    <p>JANMASHTAMI</p>
+                </div>
+                <div class="scroll-item">
+                    <img src="https://cdn.lazyshop.com/files/84d84f33-5cbd-4cd2-8c63-4a3789e49cfc/other/d06f30cb308413cd2b7c13f902c89a7a.jpg" alt="Krishna Image 5">
+                    <p>JANMASHTAMI</p>
+                </div>
+                <div class="scroll-item">
+                    <img src="https://cdn.lazyshop.com/files/84d84f33-5cbd-4cd2-8c63-4a3789e49cfc/other/d06f30cb308413cd2b7c13f902c89a7a.jpg" alt="Krishna Image 6">
+                    <p>JANMASHTAMI</p>
+                </div>
+                <div class="scroll-item">
+                    <img src="https://cdn.lazyshop.com/files/84d84f33-5cbd-4cd2-8c63-4a3789e49cfc/other/d06f30cb308413cd2b7c13f902c89a7a.jpg" alt="Krishna Image 7">
+                    <p>JANMASHTAMI</p>
+                </div>
+                <div class="scroll-item">
+                    <img src="https://cdn.lazyshop.com/files/84d84f33-5cbd-4cd2-8c63-4a3789e49cfc/other/d06f30cb308413cd2b7c13f902c89a7a.jpg" alt="Krishna Image 8">
+                    <p>JANMASHTAMI</p>
+                </div>
+                <div class="scroll-item">
+                    <img src="https://cdn.lazyshop.com/files/84d84f33-5cbd-4cd2-8c63-4a3789e49cfc/other/d06f30cb308413cd2b7c13f902c89a7a.jpg" alt="Krishna Image 9">
+                    <p>JANMASHTAMI</p>
+                </div>
+                <div class="scroll-item">
+                    <img src="https://cdn.lazyshop.com/files/84d84f33-5cbd-4cd2-8c63-4a3789e49cfc/other/d06f30cb308413cd2b7c13f902c89a7a.jpg" alt="Krishna Image 10">
+                    <p>JANMASHTAMI</p>
+                </div>
+                <div class="scroll-item">
+                    <img src="https://cdn.lazyshop.com/files/84d84f33-5cbd-4cd2-8c63-4a3789e49cfc/other/d06f30cb308413cd2b7c13f902c89a7a.jpg" alt="Krishna Image 11">
+                    <p>JANMASHTAMI</p>
+                </div>
+                <div class="scroll-item">
+                    <img src="https://cdn.lazyshop.com/files/84d84f33-5cbd-4cd2-8c63-4a3789e49cfc/other/d06f30cb308413cd2b7c13f902c89a7a.jpg" alt="Krishna Image 12">
+                    <p>JANMASHTAMI</p>
+                </div>
+                <div class="scroll-item">
+                    <img src="https://cdn.lazyshop.com/files/84d84f33-5cbd-4cd2-8c63-4a3789e49cfc/other/d06f30cb308413cd2b7c13f902c89a7a.jpg" alt="Krishna Image 13">
+                    <p>JANMASHTAMI</p>
+                </div>
+                <div class="scroll-item">
+                    <img src="https://cdn.lazyshop.com/files/84d84f33-5cbd-4cd2-8c63-4a3789e49cfc/other/d06f30cb308413cd2b7c13f902c89a7a.jpg" alt="Krishna Image 14">
+                    <p>JANMASHTAMI</p>
+                </div>
+                <div class="scroll-item">
+                    <img src="https://cdn.lazyshop.com/files/84d84f33-5cbd-4cd2-8c63-4a3789e49cfc/other/d06f30cb308413cd2b7c13f902c89a7a.jpg" alt="Krishna Image 15">
+                    <p>JANMASHTAMI</p>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="container-fluid">
+            <div class="scrollable-row">
+                <!-- Replace 'https://cdn.lazyshop.com/files/84d84f33-5cbd-4cd2-8c63-4a3789e49cfc/other/d06f30cb308413cd2b7c13f902c89a7a.jpg' with actual paths -->
+                <div class="scroll-item">
+                    <img src="https://cdn.lazyshop.com/files/84d84f33-5cbd-4cd2-8c63-4a3789e49cfc/other/d06f30cb308413cd2b7c13f902c89a7a.jpg" alt="Krishna Image 1">
+                    <p>JANMASHTAMI</p>
+                </div>
+                <div class="scroll-item">
+                    <img src="https://cdn.lazyshop.com/files/84d84f33-5cbd-4cd2-8c63-4a3789e49cfc/other/d06f30cb308413cd2b7c13f902c89a7a.jpg" alt="Krishna Image 2">
+                    <p>JANMASHTAMI</p>
+                </div>
+                <div class="scroll-item">
+                    <img src="https://cdn.lazyshop.com/files/84d84f33-5cbd-4cd2-8c63-4a3789e49cfc/other/d06f30cb308413cd2b7c13f902c89a7a.jpg" alt="Krishna Image 3">
+                    <p>JANMASHTAMI</p>
+                </div>
+                <div class="scroll-item">
+                    <img src="https://cdn.lazyshop.com/files/84d84f33-5cbd-4cd2-8c63-4a3789e49cfc/other/d06f30cb308413cd2b7c13f902c89a7a.jpg" alt="Krishna Image 4">
+                    <p>JANMASHTAMI</p>
+                </div>
+                <div class="scroll-item">
+                    <img src="https://cdn.lazyshop.com/files/84d84f33-5cbd-4cd2-8c63-4a3789e49cfc/other/d06f30cb308413cd2b7c13f902c89a7a.jpg" alt="Krishna Image 5">
+                    <p>JANMASHTAMI</p>
+                </div>
+                <div class="scroll-item">
+                    <img src="https://cdn.lazyshop.com/files/84d84f33-5cbd-4cd2-8c63-4a3789e49cfc/other/d06f30cb308413cd2b7c13f902c89a7a.jpg" alt="Krishna Image 6">
+                    <p>JANMASHTAMI</p>
+                </div>
+                <div class="scroll-item">
+                    <img src="https://cdn.lazyshop.com/files/84d84f33-5cbd-4cd2-8c63-4a3789e49cfc/other/d06f30cb308413cd2b7c13f902c89a7a.jpg" alt="Krishna Image 7">
+                    <p>JANMASHTAMI</p>
+                </div>
+                <div class="scroll-item">
+                    <img src="https://cdn.lazyshop.com/files/84d84f33-5cbd-4cd2-8c63-4a3789e49cfc/other/d06f30cb308413cd2b7c13f902c89a7a.jpg" alt="Krishna Image 8">
+                    <p>JANMASHTAMI</p>
+                </div>
+                <div class="scroll-item">
+                    <img src="https://cdn.lazyshop.com/files/84d84f33-5cbd-4cd2-8c63-4a3789e49cfc/other/d06f30cb308413cd2b7c13f902c89a7a.jpg" alt="Krishna Image 9">
+                    <p>JANMASHTAMI</p>
+                </div>
+                <div class="scroll-item">
+                    <img src="https://cdn.lazyshop.com/files/84d84f33-5cbd-4cd2-8c63-4a3789e49cfc/other/d06f30cb308413cd2b7c13f902c89a7a.jpg" alt="Krishna Image 10">
+                    <p>JANMASHTAMI</p>
+                </div>
+                <div class="scroll-item">
+                    <img src="https://cdn.lazyshop.com/files/84d84f33-5cbd-4cd2-8c63-4a3789e49cfc/other/d06f30cb308413cd2b7c13f902c89a7a.jpg" alt="Krishna Image 11">
+                    <p>JANMASHTAMI</p>
+                </div>
+                <div class="scroll-item">
+                    <img src="https://cdn.lazyshop.com/files/84d84f33-5cbd-4cd2-8c63-4a3789e49cfc/other/d06f30cb308413cd2b7c13f902c89a7a.jpg" alt="Krishna Image 12">
+                    <p>JANMASHTAMI</p>
+                </div>
+                <div class="scroll-item">
+                    <img src="https://cdn.lazyshop.com/files/84d84f33-5cbd-4cd2-8c63-4a3789e49cfc/other/d06f30cb308413cd2b7c13f902c89a7a.jpg" alt="Krishna Image 13">
+                    <p>JANMASHTAMI</p>
+                </div>
+                <div class="scroll-item">
+                    <img src="https://cdn.lazyshop.com/files/84d84f33-5cbd-4cd2-8c63-4a3789e49cfc/other/d06f30cb308413cd2b7c13f902c89a7a.jpg" alt="Krishna Image 14">
+                    <p>JANMASHTAMI</p>
+                </div>
+                <div class="scroll-item">
+                    <img src="https://cdn.lazyshop.com/files/84d84f33-5cbd-4cd2-8c63-4a3789e49cfc/other/d06f30cb308413cd2b7c13f902c89a7a.jpg" alt="Krishna Image 15">
+                    <p>JANMASHTAMI</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="container-fluid">
+            <div class="scrollable-row">
+                <!-- Replace 'https://cdn.lazyshop.com/files/84d84f33-5cbd-4cd2-8c63-4a3789e49cfc/other/d06f30cb308413cd2b7c13f902c89a7a.jpg' with actual paths -->
+                <div class="scroll-item">
+                    <img src="https://cdn.lazyshop.com/files/84d84f33-5cbd-4cd2-8c63-4a3789e49cfc/other/d06f30cb308413cd2b7c13f902c89a7a.jpg" alt="Krishna Image 1">
+                    <p>JANMASHTAMI</p>
+                </div>
+                <div class="scroll-item">
+                    <img src="https://cdn.lazyshop.com/files/84d84f33-5cbd-4cd2-8c63-4a3789e49cfc/other/d06f30cb308413cd2b7c13f902c89a7a.jpg" alt="Krishna Image 2">
+                    <p>JANMASHTAMI</p>
+                </div>
+                <div class="scroll-item">
+                    <img src="https://cdn.lazyshop.com/files/84d84f33-5cbd-4cd2-8c63-4a3789e49cfc/other/d06f30cb308413cd2b7c13f902c89a7a.jpg" alt="Krishna Image 3">
+                    <p>JANMASHTAMI</p>
+                </div>
+                <div class="scroll-item">
+                    <img src="https://cdn.lazyshop.com/files/84d84f33-5cbd-4cd2-8c63-4a3789e49cfc/other/d06f30cb308413cd2b7c13f902c89a7a.jpg" alt="Krishna Image 4">
+                    <p>JANMASHTAMI</p>
+                </div>
+                <div class="scroll-item">
+                    <img src="https://cdn.lazyshop.com/files/84d84f33-5cbd-4cd2-8c63-4a3789e49cfc/other/d06f30cb308413cd2b7c13f902c89a7a.jpg" alt="Krishna Image 5">
+                    <p>JANMASHTAMI</p>
+                </div>
+                <div class="scroll-item">
+                    <img src="https://cdn.lazyshop.com/files/84d84f33-5cbd-4cd2-8c63-4a3789e49cfc/other/d06f30cb308413cd2b7c13f902c89a7a.jpg" alt="Krishna Image 6">
+                    <p>JANMASHTAMI</p>
+                </div>
+                <div class="scroll-item">
+                    <img src="https://cdn.lazyshop.com/files/84d84f33-5cbd-4cd2-8c63-4a3789e49cfc/other/d06f30cb308413cd2b7c13f902c89a7a.jpg" alt="Krishna Image 7">
+                    <p>JANMASHTAMI</p>
+                </div>
+                <div class="scroll-item">
+                    <img src="https://cdn.lazyshop.com/files/84d84f33-5cbd-4cd2-8c63-4a3789e49cfc/other/d06f30cb308413cd2b7c13f902c89a7a.jpg" alt="Krishna Image 8">
+                    <p>JANMASHTAMI</p>
+                </div>
+                <div class="scroll-item">
+                    <img src="https://cdn.lazyshop.com/files/84d84f33-5cbd-4cd2-8c63-4a3789e49cfc/other/d06f30cb308413cd2b7c13f902c89a7a.jpg" alt="Krishna Image 9">
+                    <p>JANMASHTAMI</p>
+                </div>
+                <div class="scroll-item">
+                    <img src="https://cdn.lazyshop.com/files/84d84f33-5cbd-4cd2-8c63-4a3789e49cfc/other/d06f30cb308413cd2b7c13f902c89a7a.jpg" alt="Krishna Image 10">
+                    <p>JANMASHTAMI</p>
+                </div>
+                <div class="scroll-item">
+                    <img src="https://cdn.lazyshop.com/files/84d84f33-5cbd-4cd2-8c63-4a3789e49cfc/other/d06f30cb308413cd2b7c13f902c89a7a.jpg" alt="Krishna Image 11">
+                    <p>JANMASHTAMI</p>
+                </div>
+                <div class="scroll-item">
+                    <img src="https://cdn.lazyshop.com/files/84d84f33-5cbd-4cd2-8c63-4a3789e49cfc/other/d06f30cb308413cd2b7c13f902c89a7a.jpg" alt="Krishna Image 12">
+                    <p>JANMASHTAMI</p>
+                </div>
+                <div class="scroll-item">
+                    <img src="https://cdn.lazyshop.com/files/84d84f33-5cbd-4cd2-8c63-4a3789e49cfc/other/d06f30cb308413cd2b7c13f902c89a7a.jpg" alt="Krishna Image 13">
+                    <p>JANMASHTAMI</p>
+                </div>
+                <div class="scroll-item">
+                    <img src="https://cdn.lazyshop.com/files/84d84f33-5cbd-4cd2-8c63-4a3789e49cfc/other/d06f30cb308413cd2b7c13f902c89a7a.jpg" alt="Krishna Image 14">
+                    <p>JANMASHTAMI</p>
+                </div>
+                <div class="scroll-item">
+                    <img src="https://cdn.lazyshop.com/files/84d84f33-5cbd-4cd2-8c63-4a3789e49cfc/other/d06f30cb308413cd2b7c13f902c89a7a.jpg" alt="Krishna Image 15">
+                    <p>JANMASHTAMI</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="container-fluid">
+            <div class="scrollable-row">
+                <!-- Replace 'https://cdn.lazyshop.com/files/84d84f33-5cbd-4cd2-8c63-4a3789e49cfc/other/d06f30cb308413cd2b7c13f902c89a7a.jpg' with actual paths -->
+                <div class="scroll-item">
+                    <img src="https://cdn.lazyshop.com/files/84d84f33-5cbd-4cd2-8c63-4a3789e49cfc/other/d06f30cb308413cd2b7c13f902c89a7a.jpg" alt="Krishna Image 1">
+                    <p>JANMASHTAMI</p>
+                </div>
+                <div class="scroll-item">
+                    <img src="https://cdn.lazyshop.com/files/84d84f33-5cbd-4cd2-8c63-4a3789e49cfc/other/d06f30cb308413cd2b7c13f902c89a7a.jpg" alt="Krishna Image 2">
+                    <p>JANMASHTAMI</p>
+                </div>
+                <div class="scroll-item">
+                    <img src="https://cdn.lazyshop.com/files/84d84f33-5cbd-4cd2-8c63-4a3789e49cfc/other/d06f30cb308413cd2b7c13f902c89a7a.jpg" alt="Krishna Image 3">
+                    <p>JANMASHTAMI</p>
+                </div>
+                <div class="scroll-item">
+                    <img src="https://cdn.lazyshop.com/files/84d84f33-5cbd-4cd2-8c63-4a3789e49cfc/other/d06f30cb308413cd2b7c13f902c89a7a.jpg" alt="Krishna Image 4">
+                    <p>JANMASHTAMI</p>
+                </div>
+                <div class="scroll-item">
+                    <img src="https://cdn.lazyshop.com/files/84d84f33-5cbd-4cd2-8c63-4a3789e49cfc/other/d06f30cb308413cd2b7c13f902c89a7a.jpg" alt="Krishna Image 5">
+                    <p>JANMASHTAMI</p>
+                </div>
+                <div class="scroll-item">
+                    <img src="https://cdn.lazyshop.com/files/84d84f33-5cbd-4cd2-8c63-4a3789e49cfc/other/d06f30cb308413cd2b7c13f902c89a7a.jpg" alt="Krishna Image 6">
+                    <p>JANMASHTAMI</p>
+                </div>
+                <div class="scroll-item">
+                    <img src="https://cdn.lazyshop.com/files/84d84f33-5cbd-4cd2-8c63-4a3789e49cfc/other/d06f30cb308413cd2b7c13f902c89a7a.jpg" alt="Krishna Image 7">
+                    <p>JANMASHTAMI</p>
+                </div>
+                <div class="scroll-item">
+                    <img src="https://cdn.lazyshop.com/files/84d84f33-5cbd-4cd2-8c63-4a3789e49cfc/other/d06f30cb308413cd2b7c13f902c89a7a.jpg" alt="Krishna Image 8">
+                    <p>JANMASHTAMI</p>
+                </div>
+                <div class="scroll-item">
+                    <img src="https://cdn.lazyshop.com/files/84d84f33-5cbd-4cd2-8c63-4a3789e49cfc/other/d06f30cb308413cd2b7c13f902c89a7a.jpg" alt="Krishna Image 9">
+                    <p>JANMASHTAMI</p>
+                </div>
+                <div class="scroll-item">
+                    <img src="https://cdn.lazyshop.com/files/84d84f33-5cbd-4cd2-8c63-4a3789e49cfc/other/d06f30cb308413cd2b7c13f902c89a7a.jpg" alt="Krishna Image 10">
+                    <p>JANMASHTAMI</p>
+                </div>
+                <div class="scroll-item">
+                    <img src="https://cdn.lazyshop.com/files/84d84f33-5cbd-4cd2-8c63-4a3789e49cfc/other/d06f30cb308413cd2b7c13f902c89a7a.jpg" alt="Krishna Image 11">
+                    <p>JANMASHTAMI</p>
+                </div>
+                <div class="scroll-item">
+                    <img src="https://cdn.lazyshop.com/files/84d84f33-5cbd-4cd2-8c63-4a3789e49cfc/other/d06f30cb308413cd2b7c13f902c89a7a.jpg" alt="Krishna Image 12">
+                    <p>JANMASHTAMI</p>
+                </div>
+                <div class="scroll-item">
+                    <img src="https://cdn.lazyshop.com/files/84d84f33-5cbd-4cd2-8c63-4a3789e49cfc/other/d06f30cb308413cd2b7c13f902c89a7a.jpg" alt="Krishna Image 13">
+                    <p>JANMASHTAMI</p>
+                </div>
+                <div class="scroll-item">
+                    <img src="https://cdn.lazyshop.com/files/84d84f33-5cbd-4cd2-8c63-4a3789e49cfc/other/d06f30cb308413cd2b7c13f902c89a7a.jpg" alt="Krishna Image 14">
+                    <p>JANMASHTAMI</p>
+                </div>
+                <div class="scroll-item">
+                    <img src="https://cdn.lazyshop.com/files/84d84f33-5cbd-4cd2-8c63-4a3789e49cfc/other/d06f30cb308413cd2b7c13f902c89a7a.jpg" alt="Krishna Image 15">
+                    <p>JANMASHTAMI</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="container-fluid">
+            <div class="scrollable-row">
+                <!-- Replace 'https://cdn.lazyshop.com/files/84d84f33-5cbd-4cd2-8c63-4a3789e49cfc/other/d06f30cb308413cd2b7c13f902c89a7a.jpg' with actual paths -->
+                <div class="scroll-item">
+                    <img src="https://cdn.lazyshop.com/files/84d84f33-5cbd-4cd2-8c63-4a3789e49cfc/other/d06f30cb308413cd2b7c13f902c89a7a.jpg" alt="Krishna Image 1">
+                    <p>JANMASHTAMI</p>
+                </div>
+                <div class="scroll-item">
+                    <img src="https://cdn.lazyshop.com/files/84d84f33-5cbd-4cd2-8c63-4a3789e49cfc/other/d06f30cb308413cd2b7c13f902c89a7a.jpg" alt="Krishna Image 2">
+                    <p>JANMASHTAMI</p>
+                </div>
+                <div class="scroll-item">
+                    <img src="https://cdn.lazyshop.com/files/84d84f33-5cbd-4cd2-8c63-4a3789e49cfc/other/d06f30cb308413cd2b7c13f902c89a7a.jpg" alt="Krishna Image 3">
+                    <p>JANMASHTAMI</p>
+                </div>
+                <div class="scroll-item">
+                    <img src="https://cdn.lazyshop.com/files/84d84f33-5cbd-4cd2-8c63-4a3789e49cfc/other/d06f30cb308413cd2b7c13f902c89a7a.jpg" alt="Krishna Image 4">
+                    <p>JANMASHTAMI</p>
+                </div>
+                <div class="scroll-item">
+                    <img src="https://cdn.lazyshop.com/files/84d84f33-5cbd-4cd2-8c63-4a3789e49cfc/other/d06f30cb308413cd2b7c13f902c89a7a.jpg" alt="Krishna Image 5">
+                    <p>JANMASHTAMI</p>
+                </div>
+                <div class="scroll-item">
+                    <img src="https://cdn.lazyshop.com/files/84d84f33-5cbd-4cd2-8c63-4a3789e49cfc/other/d06f30cb308413cd2b7c13f902c89a7a.jpg" alt="Krishna Image 6">
+                    <p>JANMASHTAMI</p>
+                </div>
+                <div class="scroll-item">
+                    <img src="https://cdn.lazyshop.com/files/84d84f33-5cbd-4cd2-8c63-4a3789e49cfc/other/d06f30cb308413cd2b7c13f902c89a7a.jpg" alt="Krishna Image 7">
+                    <p>JANMASHTAMI</p>
+                </div>
+                <div class="scroll-item">
+                    <img src="https://cdn.lazyshop.com/files/84d84f33-5cbd-4cd2-8c63-4a3789e49cfc/other/d06f30cb308413cd2b7c13f902c89a7a.jpg" alt="Krishna Image 8">
+                    <p>JANMASHTAMI</p>
+                </div>
+                <div class="scroll-item">
+                    <img src="https://cdn.lazyshop.com/files/84d84f33-5cbd-4cd2-8c63-4a3789e49cfc/other/d06f30cb308413cd2b7c13f902c89a7a.jpg" alt="Krishna Image 9">
+                    <p>JANMASHTAMI</p>
+                </div>
+                <div class="scroll-item">
+                    <img src="https://cdn.lazyshop.com/files/84d84f33-5cbd-4cd2-8c63-4a3789e49cfc/other/d06f30cb308413cd2b7c13f902c89a7a.jpg" alt="Krishna Image 10">
+                    <p>JANMASHTAMI</p>
+                </div>
+                <div class="scroll-item">
+                    <img src="https://cdn.lazyshop.com/files/84d84f33-5cbd-4cd2-8c63-4a3789e49cfc/other/d06f30cb308413cd2b7c13f902c89a7a.jpg" alt="Krishna Image 11">
+                    <p>JANMASHTAMI</p>
+                </div>
+                <div class="scroll-item">
+                    <img src="https://cdn.lazyshop.com/files/84d84f33-5cbd-4cd2-8c63-4a3789e49cfc/other/d06f30cb308413cd2b7c13f902c89a7a.jpg" alt="Krishna Image 12">
+                    <p>JANMASHTAMI</p>
+                </div>
+                <div class="scroll-item">
+                    <img src="https://cdn.lazyshop.com/files/84d84f33-5cbd-4cd2-8c63-4a3789e49cfc/other/d06f30cb308413cd2b7c13f902c89a7a.jpg" alt="Krishna Image 13">
+                    <p>JANMASHTAMI</p>
+                </div>
+                <div class="scroll-item">
+                    <img src="https://cdn.lazyshop.com/files/84d84f33-5cbd-4cd2-8c63-4a3789e49cfc/other/d06f30cb308413cd2b7c13f902c89a7a.jpg" alt="Krishna Image 14">
+                    <p>JANMASHTAMI</p>
+                </div>
+                <div class="scroll-item">
+                    <img src="https://cdn.lazyshop.com/files/84d84f33-5cbd-4cd2-8c63-4a3789e49cfc/other/d06f30cb308413cd2b7c13f902c89a7a.jpg" alt="Krishna Image 15">
+                    <p>JANMASHTAMI</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="container-fluid">
+            <div class="scrollable-row">
+                <!-- Replace 'https://cdn.lazyshop.com/files/84d84f33-5cbd-4cd2-8c63-4a3789e49cfc/other/d06f30cb308413cd2b7c13f902c89a7a.jpg' with actual paths -->
+                <div class="scroll-item">
+                    <img src="https://cdn.lazyshop.com/files/84d84f33-5cbd-4cd2-8c63-4a3789e49cfc/other/d06f30cb308413cd2b7c13f902c89a7a.jpg" alt="Krishna Image 1">
+                    <p>JANMASHTAMI</p>
+                </div>
+                <div class="scroll-item">
+                    <img src="https://cdn.lazyshop.com/files/84d84f33-5cbd-4cd2-8c63-4a3789e49cfc/other/d06f30cb308413cd2b7c13f902c89a7a.jpg" alt="Krishna Image 2">
+                    <p>JANMASHTAMI</p>
+                </div>
+                <div class="scroll-item">
+                    <img src="https://cdn.lazyshop.com/files/84d84f33-5cbd-4cd2-8c63-4a3789e49cfc/other/d06f30cb308413cd2b7c13f902c89a7a.jpg" alt="Krishna Image 3">
+                    <p>JANMASHTAMI</p>
+                </div>
+                <div class="scroll-item">
+                    <img src="https://cdn.lazyshop.com/files/84d84f33-5cbd-4cd2-8c63-4a3789e49cfc/other/d06f30cb308413cd2b7c13f902c89a7a.jpg" alt="Krishna Image 4">
+                    <p>JANMASHTAMI</p>
+                </div>
+                <div class="scroll-item">
+                    <img src="https://cdn.lazyshop.com/files/84d84f33-5cbd-4cd2-8c63-4a3789e49cfc/other/d06f30cb308413cd2b7c13f902c89a7a.jpg" alt="Krishna Image 5">
+                    <p>JANMASHTAMI</p>
+                </div>
+                <div class="scroll-item">
+                    <img src="https://cdn.lazyshop.com/files/84d84f33-5cbd-4cd2-8c63-4a3789e49cfc/other/d06f30cb308413cd2b7c13f902c89a7a.jpg" alt="Krishna Image 6">
+                    <p>JANMASHTAMI</p>
+                </div>
+                <div class="scroll-item">
+                    <img src="https://cdn.lazyshop.com/files/84d84f33-5cbd-4cd2-8c63-4a3789e49cfc/other/d06f30cb308413cd2b7c13f902c89a7a.jpg" alt="Krishna Image 7">
+                    <p>JANMASHTAMI</p>
+                </div>
+                <div class="scroll-item">
+                    <img src="https://cdn.lazyshop.com/files/84d84f33-5cbd-4cd2-8c63-4a3789e49cfc/other/d06f30cb308413cd2b7c13f902c89a7a.jpg" alt="Krishna Image 8">
+                    <p>JANMASHTAMI</p>
+                </div>
+                <div class="scroll-item">
+                    <img src="https://cdn.lazyshop.com/files/84d84f33-5cbd-4cd2-8c63-4a3789e49cfc/other/d06f30cb308413cd2b7c13f902c89a7a.jpg" alt="Krishna Image 9">
+                    <p>JANMASHTAMI</p>
+                </div>
+                <div class="scroll-item">
+                    <img src="https://cdn.lazyshop.com/files/84d84f33-5cbd-4cd2-8c63-4a3789e49cfc/other/d06f30cb308413cd2b7c13f902c89a7a.jpg" alt="Krishna Image 10">
+                    <p>JANMASHTAMI</p>
+                </div>
+                <div class="scroll-item">
+                    <img src="https://cdn.lazyshop.com/files/84d84f33-5cbd-4cd2-8c63-4a3789e49cfc/other/d06f30cb308413cd2b7c13f902c89a7a.jpg" alt="Krishna Image 11">
+                    <p>JANMASHTAMI</p>
+                </div>
+                <div class="scroll-item">
+                    <img src="https://cdn.lazyshop.com/files/84d84f33-5cbd-4cd2-8c63-4a3789e49cfc/other/d06f30cb308413cd2b7c13f902c89a7a.jpg" alt="Krishna Image 12">
+                    <p>JANMASHTAMI</p>
+                </div>
+                <div class="scroll-item">
+                    <img src="https://cdn.lazyshop.com/files/84d84f33-5cbd-4cd2-8c63-4a3789e49cfc/other/d06f30cb308413cd2b7c13f902c89a7a.jpg" alt="Krishna Image 13">
+                    <p>JANMASHTAMI</p>
+                </div>
+                <div class="scroll-item">
+                    <img src="https://cdn.lazyshop.com/files/84d84f33-5cbd-4cd2-8c63-4a3789e49cfc/other/d06f30cb308413cd2b7c13f902c89a7a.jpg" alt="Krishna Image 14">
+                    <p>JANMASHTAMI</p>
+                </div>
+                <div class="scroll-item">
+                    <img src="https://cdn.lazyshop.com/files/84d84f33-5cbd-4cd2-8c63-4a3789e49cfc/other/d06f30cb308413cd2b7c13f902c89a7a.jpg" alt="Krishna Image 15">
+                    <p>JANMASHTAMI</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="container-fluid">
+            <div class="scrollable-row">
+                <!-- Replace 'https://cdn.lazyshop.com/files/84d84f33-5cbd-4cd2-8c63-4a3789e49cfc/other/d06f30cb308413cd2b7c13f902c89a7a.jpg' with actual paths -->
+                <div class="scroll-item">
+                    <img src="https://cdn.lazyshop.com/files/84d84f33-5cbd-4cd2-8c63-4a3789e49cfc/other/d06f30cb308413cd2b7c13f902c89a7a.jpg" alt="Krishna Image 1">
+                    <p>JANMASHTAMI</p>
+                </div>
+                <div class="scroll-item">
+                    <img src="https://cdn.lazyshop.com/files/84d84f33-5cbd-4cd2-8c63-4a3789e49cfc/other/d06f30cb308413cd2b7c13f902c89a7a.jpg" alt="Krishna Image 2">
+                    <p>JANMASHTAMI</p>
+                </div>
+                <div class="scroll-item">
+                    <img src="https://cdn.lazyshop.com/files/84d84f33-5cbd-4cd2-8c63-4a3789e49cfc/other/d06f30cb308413cd2b7c13f902c89a7a.jpg" alt="Krishna Image 3">
+                    <p>JANMASHTAMI</p>
+                </div>
+                <div class="scroll-item">
+                    <img src="https://cdn.lazyshop.com/files/84d84f33-5cbd-4cd2-8c63-4a3789e49cfc/other/d06f30cb308413cd2b7c13f902c89a7a.jpg" alt="Krishna Image 4">
+                    <p>JANMASHTAMI</p>
+                </div>
+                <div class="scroll-item">
+                    <img src="https://cdn.lazyshop.com/files/84d84f33-5cbd-4cd2-8c63-4a3789e49cfc/other/d06f30cb308413cd2b7c13f902c89a7a.jpg" alt="Krishna Image 5">
+                    <p>JANMASHTAMI</p>
+                </div>
+                <div class="scroll-item">
+                    <img src="https://cdn.lazyshop.com/files/84d84f33-5cbd-4cd2-8c63-4a3789e49cfc/other/d06f30cb308413cd2b7c13f902c89a7a.jpg" alt="Krishna Image 6">
+                    <p>JANMASHTAMI</p>
+                </div>
+                <div class="scroll-item">
+                    <img src="https://cdn.lazyshop.com/files/84d84f33-5cbd-4cd2-8c63-4a3789e49cfc/other/d06f30cb308413cd2b7c13f902c89a7a.jpg" alt="Krishna Image 7">
+                    <p>JANMASHTAMI</p>
+                </div>
+                <div class="scroll-item">
+                    <img src="https://cdn.lazyshop.com/files/84d84f33-5cbd-4cd2-8c63-4a3789e49cfc/other/d06f30cb308413cd2b7c13f902c89a7a.jpg" alt="Krishna Image 8">
+                    <p>JANMASHTAMI</p>
+                </div>
+                <div class="scroll-item">
+                    <img src="https://cdn.lazyshop.com/files/84d84f33-5cbd-4cd2-8c63-4a3789e49cfc/other/d06f30cb308413cd2b7c13f902c89a7a.jpg" alt="Krishna Image 9">
+                    <p>JANMASHTAMI</p>
+                </div>
+                <div class="scroll-item">
+                    <img src="https://cdn.lazyshop.com/files/84d84f33-5cbd-4cd2-8c63-4a3789e49cfc/other/d06f30cb308413cd2b7c13f902c89a7a.jpg" alt="Krishna Image 10">
+                    <p>JANMASHTAMI</p>
+                </div>
+                <div class="scroll-item">
+                    <img src="https://cdn.lazyshop.com/files/84d84f33-5cbd-4cd2-8c63-4a3789e49cfc/other/d06f30cb308413cd2b7c13f902c89a7a.jpg" alt="Krishna Image 11">
+                    <p>JANMASHTAMI</p>
+                </div>
+                <div class="scroll-item">
+                    <img src="https://cdn.lazyshop.com/files/84d84f33-5cbd-4cd2-8c63-4a3789e49cfc/other/d06f30cb308413cd2b7c13f902c89a7a.jpg" alt="Krishna Image 12">
+                    <p>JANMASHTAMI</p>
+                </div>
+                <div class="scroll-item">
+                    <img src="https://cdn.lazyshop.com/files/84d84f33-5cbd-4cd2-8c63-4a3789e49cfc/other/d06f30cb308413cd2b7c13f902c89a7a.jpg" alt="Krishna Image 13">
+                    <p>JANMASHTAMI</p>
+                </div>
+                <div class="scroll-item">
+                    <img src="https://cdn.lazyshop.com/files/84d84f33-5cbd-4cd2-8c63-4a3789e49cfc/other/d06f30cb308413cd2b7c13f902c89a7a.jpg" alt="Krishna Image 14">
+                    <p>JANMASHTAMI</p>
+                </div>
+                <div class="scroll-item">
+                    <img src="https://cdn.lazyshop.com/files/84d84f33-5cbd-4cd2-8c63-4a3789e49cfc/other/d06f30cb308413cd2b7c13f902c89a7a.jpg" alt="Krishna Image 15">
+                    <p>JANMASHTAMI</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/js/bootstrap.min.js"></script>
+</body>
+</html>

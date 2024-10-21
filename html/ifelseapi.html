@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Toggle API Data</title>
+</head>
+<body>
+
+<div id="div" style="height:auto;width:auto"></div>
+<button id="btn">Click me</button>
+
+<script>
+async function apis() {
+  let api = 'https://jsonplaceholder.typicode.com/posts';
+  let response = await fetch(api);
+  let data = await response.json();
+  
+
+  // Add event listener for button click
+  document.getElementById('btn').addEventListener('click', () => {
+    let contentDiv = document.getElementById('div');
+
+
+    if (contentDiv.innerHTML === '') {
+      // Show the data
+      for (let i = 0; i < 10; i++) {
+        contentDiv.innerHTML += `${JSON.stringify(data[i])}<br><br>`;
+      }
+    } else {
+      // Hide the data
+      contentDiv.innerHTML = '';
+    }
+  });
+}
+
+// Call the function to load the data
+apis();
+</script>
+
+</body>
+</html>

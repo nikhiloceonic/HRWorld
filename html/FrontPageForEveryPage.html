@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Sidebar with Full-Width Content</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css"
+        integrity="sha384-4LISF5TTJX/fLmGSxO53rV4miRxdg84mZsxmO8Rx5jGtp/LbrixFETvWa5a6sESd" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <style>
+        body {
+            display: flex;
+            height: 100vh;
+            flex-direction: column;
+            margin: 0;
+        }
+
+        .wrapper {
+            display: flex;
+            flex-grow: 1;
+            overflow: hidden;
+        }
+
+        .sidebar {
+            height: 100%;
+            background-color: #343a40;
+            color: #ffffff;
+            padding: 1rem;
+            position: relative;
+            transition: transform 0.3s ease;
+            overflow-y: auto;
+        }
+
+        .sidebar a {
+            color: #ffffff;
+            text-decoration: none;
+        }
+
+        .sidebar a:hover {
+            background-color: #ffffff;
+            border-radius: 0.25rem;
+        }
+
+        .main-content {
+            flex: 1;
+            padding: 2rem;
+            overflow-y: auto;
+            background-color: #f8f9fa;
+        }
+
+        @media (max-width: 768px) {
+            .sidebar {
+                position: fixed;
+                width: 250px;
+                transform: translateX(-100%);
+                z-index: 1000;
+            }
+
+            .sidebar.show {
+                transform: translateX(0);
+            }
+
+            .sidebar-toggle {
+                display: block;
+            }
+        }
+
+        .sidebar-toggle {
+            display: none;
+        }
+
+        .navbar {
+            z-index: 1;
+        }
+
+        .scrollable-content {
+            height: 200vh;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-grey">
+        <div class="container-fluid">
+            <button class="btn btn-primary sidebar-toggle d-md-none me-3" onclick="toggleSidebar()">☰</button>
+            <a class="navbar-brand" href="#">Navbar</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Features</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Pricing</a>
+                    </li>
+                    <li class="nav-item" id="contact">
+                        <a class="nav-link" href="#">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="wrapper">
+        <!-- Sidebar -->
+        <nav id="sidebar" class="sidebar col-md-3 col-lg-2 bg-dark text-white">
+            <div class="position-sticky">
+                <h4 class="mb-4">Sidebar</h4>
+                <ul class="nav flex-column">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#">
+                            Home
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">
+                            About
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">
+                            Services
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">
+                            Contact
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+        <!-- Main content wrapper -->
+        <div class="main-wrapper d-flex flex-column flex-grow-1">
+            <header class="navbar-light bg-light border-bottom">
+                <h1 class="h2 ms-3 mt-3">Main Content</h1>
+            </header>
+
+            <!-- Main content -->
+            <div class="main-content">
+                <h2>Welcome to the Homepage</h2>
+                <p>This is a responsive sidebar example using Bootstrap 5 with improved styling.</p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla facilisi. Fusce pharetra consequat
+                    metus, vel convallis est pretium nec. Donec facilisis mollis justo, ac cursus nisl condimentum a.
+                    Proin non nulla id sapien efficitur volutpat.</p>
+
+                <div class="scrollable-content">
+                    <h3>Additional Content</h3>
+                    <p>Here is some additional content to fill the page and make it scrollable. Lorem ipsum dolor sit
+                        amet, consectetur adipiscing elit. Nullam hendrerit quam in enim eleifend, non laoreet odio
+                        vulputate. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia
+                        curae; In sit amet felis nec nisi malesuada dictum.</p>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur scelerisque sapien vitae
+                        malesuada venenatis. Aliquam nec turpis ut turpis tempor volutpat. Phasellus faucibus nunc ac
+                        nisl viverra, at feugiat felis mollis. Maecenas scelerisque dictum sapien, nec suscipit libero
+                        malesuada non.</p>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur scelerisque sapien vitae
+                        malesuada venenatis. Aliquam nec turpis ut turpis tempor volutpat. Phasellus faucibus nunc ac
+                        nisl viverra, at feugiat felis mollis. Maecenas scelerisque dictum sapien, nec suscipit libero
+                        malesuada non.</p>
+                        <p>Here is some additional content to fill the page and make it scrollable. Lorem ipsum dolor sit
+                        amet, consectetur adipiscing elit. Nullam hendrerit quam in enim eleifend, non laoreet odio
+                        vulputate. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia
+                        curae; In sit amet felis nec nisi malesuada dictum.</p>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur scelerisque sapien vitae
+                        malesuada venenatis. Aliquam nec turpis ut turpis tempor volutpat. Phasellus faucibus nunc ac
+                        nisl viverra, at feugiat felis mollis. Maecenas scelerisque dictum sapien, nec suscipit libero
+                        malesuada non.</p>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur scelerisque sapien vitae
+                        malesuada venenatis. Aliquam nec turpis ut turpis tempor volutpat. Phasellus faucibus nunc ac
+                        nisl viverra, at feugiat felis mollis. Maecenas scelerisque dictum sapien, nec suscipit libero
+                        malesuada non.</p>
+                        <p>Here is some additional content to fill the page and make it scrollable. Lorem ipsum dolor sit
+                        amet, consectetur adipiscing elit. Nullam hendrerit quam in enim eleifend, non laoreet odio
+                        vulputate. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia
+                        curae; In sit amet felis nec nisi malesuada dictum.</p>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur scelerisque sapien vitae
+                        malesuada venenatis. Aliquam nec turpis ut turpis tempor volutpat. Phasellus faucibus nunc ac
+                        nisl viverra, at feugiat felis mollis. Maecenas scelerisque dictum sapien, nec suscipit libero
+                        malesuada non.</p>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur scelerisque sapien vitae
+                        malesuada venenatis. Aliquam nec turpis ut turpis tempor volutpat. Phasellus faucibus nunc ac
+                        nisl viverra, at feugiat felis mollis. Maecenas scelerisque dictum sapien, nec suscipit libero
+                        malesuada non.</p>
+                        <p>Here is some additional content to fill the page and make it scrollable. Lorem ipsum dolor sit
+                        amet, consectetur adipiscing elit. Nullam hendrerit quam in enim eleifend, non laoreet odio
+                        vulputate. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia
+                        curae; In sit amet felis nec nisi malesuada dictum.</p>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur scelerisque sapien vitae
+                        malesuada venenatis. Aliquam nec turpis ut turpis tempor volutpat. Phasellus faucibus nunc ac
+                        nisl viverra, at feugiat felis mollis. Maecenas scelerisque dictum sapien, nec suscipit libero
+                        malesuada non.</p>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur scelerisque sapien vitae
+                        malesuada venenatis. Aliquam nec turpis ut turpis tempor volutpat. Phasellus faucibus nunc ac
+                        nisl viverra, at feugiat felis mollis. Maecenas scelerisque dictum sapien, nec suscipit libero
+                        malesuada non.</p>
+                        <p>Here is some additional content to fill the page and make it scrollable. Lorem ipsum dolor sit
+                        amet, consectetur adipiscing elit. Nullam hendrerit quam in enim eleifend, non laoreet odio
+                        vulputate. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia
+                        curae; In sit amet felis nec nisi malesuada dictum.</p>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur scelerisque sapien vitae
+                        malesuada venenatis. Aliquam nec turpis ut turpis tempor volutpat. Phasellus faucibus nunc ac
+                        nisl viverra, at feugiat felis mollis. Maecenas scelerisque dictum sapien, nec suscipit libero
+                        malesuada non.</p>
+                    <p id="para">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur scelerisque sapien vitae
+                        malesuada venenatis. Aliquam nec turpis ut turpis tempor volutpat. Phasellus faucibus nunc ac
+                        nisl viverra, at feugiat felis mollis. Maecenas scelerisque dictum sapien, nec suscipit libero
+                        malesuada non.</p>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/js/bootstrap.min.js"></script>
+    <script>
+        // JavaScript to toggle the sidebar
+        function toggleSidebar() {
+            document.getElementById('sidebar').classList.toggle('show');
+        }
+
+    </script>
+</body>
+
+</html>

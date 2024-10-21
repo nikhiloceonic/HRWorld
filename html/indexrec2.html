@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Image Display</title>
+</head>
+<body>
+
+    <div id="slider-container">
+        <label for="paddingSlider" class="slider-label">Padding:</label>
+        <input type="range" id="paddingSlider" min="0" max="500" value="0">
+    </div>
+    
+    <div style="height: auto;width: auto;" id="div">
+        <img src="" id="img" style="max-width: 30%; height: auto;">
+    </div>
+    <input type="file" name="images" style="background-color:pink" id="input">
+    <button type="button" id="btn">OK</button>
+
+    <script>
+        let btn = document.getElementById("btn");
+        let input = document.getElementById("input");
+
+        btn.addEventListener("click", (e) => {
+            e.preventDefault();
+            let img = document.getElementById("img");
+            let file = input.files[0];
+
+            if (file) {
+                img.src = URL.createObjectURL(file);
+            } else {
+                alert("Please select an image file first.");
+            }
+        });
+
+                let paddingSlider = document.getElementById("paddingSlider");
+ paddingSlider.addEventListener("input", () => {
+            h1.style.padding = paddingSlider.value + "px";
+        });
+    </script>
+</body>
+</html>

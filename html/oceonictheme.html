@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>count++</title>
+</head>
+<body>
+  <div id="div" style="height:200px;width:200px">
+    <img src="" id="img" style="height:200px">
+  </div>
+  <input type="file" capture="user" name="pic" id="inp">
+  <button id="btn">click me</button>
+
+  <script>
+    let btn = document.getElementById("btn");
+    let inp = document.getElementById("inp");
+    let img = document.getElementById("img");
+
+    btn.addEventListener("click", () => {
+      let file = inp.files[0]; // Get the selected file
+      if (file) {
+        img.src = URL.createObjectURL(file); // Set the image src to the object URL
+      }
+    });
+  </script>
+</body>
+</html>

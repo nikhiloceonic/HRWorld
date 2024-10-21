@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+    <title>E-Commerce Homepage</title>
+    <style>
+        /* Custom hover effect for images */
+        .hover-image:hover {
+            transform: scale(1.05);
+            transition: transform 0.3s ease;
+        }
+
+        /* 3D Flip Effect */
+        .flip-container {
+            perspective: 1000px;
+        }
+        .flipper {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            transform-style: preserve-3d;
+            transition: transform 0.6s;
+        }
+        .flip-container:hover .flipper {
+            transform: rotateY(180deg);
+        }
+        .front, .back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+        }
+        .back {
+            transform: rotateY(180deg);
+            background-color: #f8f9fa;
+        }
+
+        /* Gradient Background */
+        body {
+            background: linear-gradient(to right, #3dcecb, #004d89);
+            font-family: 'Poppins', sans-serif;
+        }
+
+        #footer {
+            background: linear-gradient(to right, #3dcecb, #004d89);
+        }
+
+        #nav {
+            background: linear-gradient(to right, #3dcecb, #004d89);
+            font-family: 'Poppins', sans-serif;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 font-sans">
+
+    <!-- Navbar -->
+    <nav class="bg-blue-600 text-white p-4 flex items-center justify-between fixed top-0 w-full z-10" id="nav">
+        <div class="text-2xl font-bold">E-Shop</div>
+        <div class="md:hidden flex items-center">
+            <button id="sidebarToggle" class="text-white focus:outline-none">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+                </svg>
+            </button>
+        </div>
+        <ul class="hidden md:flex space-x-6">
+            <li><a href="#" class="hover:underline">Home</a></li>
+            <li><a href="#" class="hover:underline">Products</a></li>
+            <li><a href="#" class="hover:underline">About</a></li>
+            <li><a href="#" class="hover:underline">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- Sidebar -->
+    <aside id="sidebar" class="fixed inset-0 bg-gray-800 bg-opacity-75 z-50 transform -translate-x-full transition-transform duration-300 ease-in-out">
+        <div class="w-64 h-full bg-white p-4">
+            <button id="closeSidebar" class="text-black absolute top-4 right-4 text-2xl">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                </svg>
+            </button>
+            <ul class="mt-8">
+                <li><a href="#" class="block py-2 hover:bg-gray-200">Home</a></li>
+                <li><a href="#" class="block py-2 hover:bg-gray-200">Products</a></li>
+                <li><a href="#" class="block py-2 hover:bg-gray-200">About</a></li>
+                <li><a href="#" class="block py-2 hover:bg-gray-200">Contact</a></li>
+            </ul>
+        </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="p-4 pt-20">
+        <!-- Hero Section -->
+        <section class="flex flex-col md:flex-row items-stretch justify-between mb-8">
+            <!-- Text Section -->
+            <div class="md:w-1/2 p-4 flex flex-col justify-center">
+                <h1 class="text-5xl font-bold mb-4 text-white">Welcome to E-Shop</h1>
+                <p class="text-lg mb-4 text-white">Discover the best products for you at unbeatable prices. Shop now and save big! E-Shop is your one-stop destination for the latest and greatest in online shopping. We offer a wide range of products from electronics to fashion, all at unbeatable prices. Our mission is to provide you with an exceptional shopping experience, from browsing to delivery. Shop with confidence knowing you're getting the best deals and top-notch customer service.</p>
+                <p class="text-lg mb-4 text-white">Our dedicated team is constantly updating our inventory to ensure that you have access to the newest and most popular items. Whether you're shopping for yourself or looking for the perfect gift, E-Shop is here to meet all your needs.</p>
+                <button type="button" id="btn">
+                    <a href="#" class="bg-blue-600 text-white px-3 py-2 rounded-lg hover:bg-blue-700 transition duration-300 text-sm">Shop Now</a>
+                </button>
+            </div>
+            <!-- Image Section -->
+            <div class="md:w-1/2 p-4 flex items-center">
+                <div class="w-full h-full flip-container">
+                    <div class="flipper">
+                        <div class="front">
+                            <img src="https://via.placeholder.com/600x400" alt="Product" class="w-full h-auto md:h-80 object-cover rounded-lg shadow-lg hover-image">
+                        </div>
+                        <div class="back bg-gray-200 flex items-center justify-center rounded-lg">
+                            <p class="text-center p-4">More Information about the product. Flip back to see the image.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Featured Products -->
+        <section>
+            <h2 class="text-3xl font-bold mb-4">Featured Products</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+                <div class="bg-white p-4 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 relative">
+                    <div class="flip-container w-full h-64">
+                        <div class="flipper">
+                            <div class="front">
+                                <img src="https://via.placeholder.com/150" alt="Product 1" class="w-full h-full object-cover rounded-t-lg mb-4">
+                            </div>
+                            <div class="back bg-gray-200 flex items-center justify-center rounded-lg">
+                                <p class="text-center p-4">Details about Product 1. Flip back to see the image.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <h3 class="text-lg font-semibold mb-2 mt-2">Product 1</h3>
+                    <p class="text-gray-600 mb-2">$29.99</p>
+                    <a href="#" class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition duration-300">View Details</a>
+                </div>
+                <!-- Repeat for more products -->
+            </div>
+        </section>
+
+        <!-- New Arrivals -->
+        <section class="mt-8">
+            <h2 class="text-3xl font-bold mb-4">New Arrivals</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+                <div class="bg-white p-4 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 relative">
+                    <div class="flip-container w-full h-64">
+                        <div class="flipper">
+                            <div class="front">
+                                <img src="https://via.placeholder.com/200" alt="New Arrival 1" class="w-full h-full object-cover rounded-t-lg mb-4">
+                            </div>
+                            <div class="back bg-gray-200 flex items-center justify-center rounded-lg">
+                                <p class="text-center p-4">Details about New Arrival 1. Flip back to see the image.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <h3 class="text-lg font-semibold mb-2 mt-2">New Arrival 1</h3>
+                    <p class="text-gray-600 mb-2">$39.99</p>
+                    <a href="#" class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition duration-300">View Details</a>
+                </div>
+                <!-- Repeat for more new arrivals -->
+            </div>
+        </section>
+
+        <!-- Best Sellers -->
+        <section class="mt-8">
+            <h2 class="text-3xl font-bold mb-4">Best Sellers</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+                <div class="bg-white p-4 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 relative">
+                    <div class="flip-container w-full h-64">
+                        <div class="flipper">
+                            <div class="front">
+                                <img src="https://via.placeholder.com/200" alt="Best Seller 1" class="w-full h-full object-cover rounded-t-lg mb-4">
+                            </div>
+                            <div class="back bg-gray-200 flex items-center justify-center rounded-lg">
+                                <p class="text-center p-4">Details about Best Seller 1. Flip back to see the image.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <h3 class="text-lg font-semibold mb-2 mt-2">Best Seller 1</h3>
+                    <p class="text-gray-600 mb-2">$49.99</p>
+                    <a href="#" class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition duration-300">View Details</a>
+                </div>
+                <!-- Repeat for more best sellers -->
+            </div>
+        </section>
+
+        <!-- Customer Reviews -->
+        <section class="mt-8 bg-white p-4 rounded-lg shadow-lg">
+            <h2 class="text-3xl font-bold mb-4">Customer Reviews</h2>
+            <div class="flex flex-col md:flex-row md:space-x-4">
+                <div class="bg-gray-100 p-4 rounded-lg mb-4 md:mb-0 flex-1">
+                    <img src="https://via.placeholder.com/100" alt="Jane Doe" class="w-24 h-24 rounded-full mb-2">
+                    <p class="font-semibold">Jane Doe</p>
+                    <p class="text-gray-600">"Excellent service and fantastic products! The quality exceeded my expectations."</p>
+                </div>
+                <div class="bg-gray-100 p-4 rounded-lg mb-4 md:mb-0 flex-1">
+                    <img src="https://via.placeholder.com/100" alt="John Smith" class="w-24 h-24 rounded-full mb-2">
+                    <p class="font-semibold">John Smith</p>
+                    <p class="text-gray-600">"Great experience! The product arrived on time and was exactly as described."</p>
+                </div>
+                <div class="bg-gray-100 p-4 rounded-lg flex-1">
+                    <img src="https://via.placeholder.com/100" alt="Emily Johnson" class="w-24 h-24 rounded-full mb-2">
+                    <p class="font-semibold">Emily Johnson</p>
+                    <p class="text-gray-600">"I am very happy with my purchase. The customer service was also top-notch."</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Feedback -->
+        <section class="mt-8 bg-white p-8 rounded-lg shadow-lg">
+            <h2 class="text-3xl font-bold mb-4">We Value Your Feedback</h2>
+            <form action="#" method="post">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+                    <div>
+                        <label for="name" class="block text-lg font-semibold mb-2">Name</label>
+                        <input type="text" id="name" name="name" class="w-full p-2 border border-gray-300 rounded-lg" required>
+                    </div>
+                    <div>
+                        <label for="email" class="block text-lg font-semibold mb-2">Email</label>
+                        <input type="email" id="email" name="email" class="w-full p-2 border border-gray-300 rounded-lg" required>
+                    </div>
+                </div>
+                <div class="mb-4">
+                    <label for="message" class="block text-lg font-semibold mb-2">Message</label>
+                    <textarea id="message" name="message" rows="4" class="w-full p-2 border border-gray-300 rounded-lg" required></textarea>
+                </div>
+                <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition duration-300">Submit Feedback</button>
+            </form>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-blue-600 text-white text-center p-4 mt-8" id="footer">
+        <p>&copy; 2024 E-Shop. All rights reserved.</p>
+        <p>Follow us on:</p>
+        <div class="flex justify-center space-x-4 mt-2">
+            <a href="#" class="text-white hover:underline">Facebook</a>
+            <a href="#" class="text-white hover:underline">Twitter</a>
+            <a href="#" class="text-white hover:underline">Instagram</a>
+        </div>
+    </footer>
+
+    <script>
+        // Toggle sidebar
+        document.getElementById('sidebarToggle').addEventListener('click', function() {
+            document.getElementById('sidebar').classList.toggle('-translate-x-full');
+        });
+        document.getElementById('closeSidebar').addEventListener('click', function() {
+            document.getElementById('sidebar').classList.add('-translate-x-full');
+        });
+    </script>
+</body>
+</html>

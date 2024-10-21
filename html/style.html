@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Adjustable Settings</title>
+    <style>
+        #slider-container {
+            margin: 10px 0;
+        }
+        .slider-label {
+            display: inline-block;
+            width: 100px;
+        }
+    </style>
+</head>
+<body>
+    <input type="text" name="ToDoList" placeholder="Write Text Here" id="inp"> 
+    <button type="button" id="btn">Click Here</button>
+    <input type="text" name="ToDoList" placeholder="Write Color Here" id="colo"> 
+    <button type="button" id="btn2">Click Here</button>
+
+    <div id="slider-container">
+        <label for="marginSlider" class="slider-label">Margin:</label>
+        <input type="range" id="marginSlider" min="0" max="500" value="0">
+    </div>
+    
+    <div id="slider-container">
+        <label for="paddingSlider" class="slider-label">Padding:</label>
+        <input type="range" id="paddingSlider" min="0" max="500" value="0">
+    </div>
+    
+    <div id="slider-container">
+        <label for="opacitySlider" class="slider-label">Opacity:</label>
+        <input type="range" id="opacitySlider" min="0" max="1" value="1" step="0.1">
+    </div>
+
+    <h1 id="h1">Sample Text</h1>
+
+    <script>
+        let btn = document.getElementById("btn");
+        let btn2 = document.getElementById("btn2");
+        let inp = document.getElementById("inp");
+        let h1 = document.getElementById("h1");
+
+
+        btn.addEventListener("click", () => {
+            h1.innerHTML = inp.value;
+            
+        });
+
+         btn2.addEventListener("click", () => {
+           
+            h1.style.color =colo.value
+        });
+
+        let marginSlider = document.getElementById("marginSlider");
+        let paddingSlider = document.getElementById("paddingSlider");
+        let opacitySlider = document.getElementById("opacitySlider");
+
+        marginSlider.addEventListener("input", () => {
+            h1.style.margin = marginSlider.value + "px";
+        });
+
+        paddingSlider.addEventListener("input", () => {
+            h1.style.padding = paddingSlider.value + "px";
+        });
+
+        opacitySlider.addEventListener("input", () => {
+            h1.style.opacity = opacitySlider.value;
+        });
+    </script>
+</body>
+</html>

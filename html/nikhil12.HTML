@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Appointment Queue</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        /* Custom CSS for layout adjustments */
+        .img-circle {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .img-circle:hover {
+            transform: scale(1.1);
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .equal-height {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            height: 100%;
+        }
+
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .btn-close {
+            padding: 0.5rem;
+            width: 35px;
+            height: 35px;
+            margin-left: auto;
+        }
+
+        @media (max-width: 576px) {
+            .appointment-card,
+            .summary-card {
+                flex-basis: 100%;
+                width: 100%;
+                margin-bottom: 15px;
+            }
+
+            .badge-wrapper {
+                text-align: center;
+                margin-top: 10px;
+            }
+
+            .row.align-items-center {
+                flex-direction: column;
+            }
+
+            .col-2,
+            .col-3,
+            .col-4,
+            .col-2:not(:first-child) {
+                text-align: center;
+                width: 100%;
+            }
+
+            .col-3 {
+                margin-top: 10px;
+            }
+
+            .back-to-shop {
+                text-align: center;
+                width: 100%;
+                margin-top: 15px;
+            }
+        }
+
+        .back-to-shop {
+            text-align: center;
+            display: block;
+            margin-top: 15px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container mt-5">
+        <div class="row">
+            <!-- Appointment Queue Section -->
+            <div class="col-lg-6 appointment-card">
+                <div class="card equal-height">
+                    <div class="card-header">
+                        <h5 class="card-title">Appointment Queue</h5>
+                        <button type="button" class="btn-close" aria-label="Close"></button>
+                    </div>
+                    <div class="card-body">
+                        <div class="row align-items-center">
+                            <div class="col-2">
+                                <img src="E:/nikhil personal/nikhil per.JPG" class="img-circle img-fluid" alt="Image">
+                            </div>
+                            <div class="col-3 badge-wrapper">
+                                <span class="badge bg-primary">Depression</span>
+                            </div>
+                            <div class="col-4">
+                                <label for="appointment-date" class="mb-0">Appointment Date</label>
+                                <input type="datetime-local" id="appointment-date" class="form-control form-control-sm mt-1" value="2024-07-29T01:00">
+                            </div>
+                            <div class="col-2">
+                                <p class="mb-0">Fees</p>
+                                <small>null</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Summary Section -->
+            <div class="col-lg-6 summary-card">
+                <div class="card equal-height">
+                    <div class="card-header">
+                        <h5 class="card-title">Summary</h5>
+                    </div>
+                    <div class="card-body">
+                        <p class="d-flex justify-content-between">
+                            <span>Total:</span>
+                            <span>₹</span>
+                        </p>
+                        <p class="d-flex justify-content-between">
+                            <span>Tax:</span>
+                            <span>₹</span>
+                        </p>
+                        <button class="btn btn-dark w-100">Confirm Order</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <a href="#" class="back-to-shop text-decoration-none">← Back to shop</a>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<body>
+<h1>JavaScript async / await</h1>
+<div id="demo"></div>
+
+<script>
+/*
+fetch('https://jsonplaceholder.typicode.com/photos')
+      .then(response => response.json())
+      .then(json => console.log(json)).catch((err)=>console.log(err))
+*/
+
+async function getFile() {
+
+try{  
+let response=await fetch("https://jsonplaceholder.typicode.com/photos");
+console.log(response);
+let data=await response.json();
+//alert(data);
+
+console.log(data)
+
+
+data.map((x)=>{
+  console.log(x.thumbnailUrl );
+})
+
+  /*document.getElementById("demo").innerHTML = data.map((x)=>`
+<p>${x.title}</p>
+<img  src="${x.thumbnailUrl}"  height=50 width=50 />
+
+    `).join('');
+*/
+
+
+  //data[0]['thumbnailUrl'];
+}
+catch(err){
+  console.log(err);
+   document.getElementById("demo").innerHTML=err;
+}
+}
+getFile();
+
+</script>
+</body>
+</html>
